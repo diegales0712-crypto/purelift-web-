@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>PureLift — Mochila Táctica de Gimnasio 45L</title>
+<style>
+  @font-face { font-family: 'system-display'; src: local('Arial Black'); }
+
+  :root {
+    --ink: #0B0B0C;
+    --panel: #151517;
+    --hair: #2A2A2E;
+    --bone: #F4F4EF;
+    --smoke: #9C9CA3;
+    --lime: #CCFF00;
+    --fire: #FF5A1F;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background-color: var(--ink);
+    color: var(--bone);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    line-height: 1.5;
+  }
+  img, svg { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+  ul { list-style: none; }
+  ::selection { background: var(--lime); color: var(--ink); }
+
+  .font-display {
+    font-family: 'Arial Narrow', 'Helvetica Neue Condensed', Impact, sans-serif;
+    font-weight: 900;
+    letter-spacing: 0.01em;
+    text-transform: uppercase;
+  }
+  .font-mono {
+    font-family: 'Courier New', ui-monospace, Menlo, monospace;
+    letter-spacing: 0.08em;
+  }
+
+  .wrap { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+  @media (min-width: 640px) { .wrap { padding: 0 32px; } }
+
+  .grid-bg {
+    background-image:
+      linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
+    background-size: 42px 42px;
+  }
+  .diagonal-stripes {
+    background-image: repeating-linear-gradient(45deg, rgba(204,255,0,0.09) 0, rgba(204,255,0,0.09) 2px, transparent 2px, transparent 14px);
+  }
+
+  .corner { position: absolute; width: 22px; height: 22px; border-color: var(--lime); }
+  .corner-tl { top: -1px; left: -1px; border-top: 2px solid; border-left: 2px solid; }
+  .corner-tr { top: -1px; right: -1px; border-top: 2px solid; border-right: 2px solid; }
+  .corner-bl { bottom: -1px; left: -1px; border-bottom: 2px solid; border-left: 2px solid; }
+  .corner-br { bottom: -1px; right: -1px; border-bottom: 2px solid; border-right: 2px solid; }
+
+  .btn-primary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 12px;
+    background: var(--lime); color: var(--ink); font-weight: 700;
+    padding: 16px 32px; border-radius: 12px;
+    box-shadow: 0 0 0 1px rgba(204,255,0,0.4), 0 8px 40px -8px rgba(204,255,0,0.35);
+    transition: transform 0.15s ease;
+  }
+  .btn-primary:active { transform: scale(0.98); }
+
+  /* ---------- Header ---------- */
+  .site-header {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(11,11,12,0.88);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--hair);
+  }
+  .site-header .wrap { height: 64px; display: flex; align-items: center; justify-content: space-between; }
+  .logo { font-family: inherit; }
+  .logo-mark { font-family: 'Arial Narrow', sans-serif; font-weight: 900; font-size: 22px; text-transform: uppercase; letter-spacing: 0.02em; }
+  .logo-mark span { color: var(--lime); }
+
+  .nav-links { display: none; gap: 36px; }
+  .nav-links a { font-size: 12px; text-transform: uppercase; color: var(--smoke); transition: color 0.2s; }
+  .nav-links a:hover { color: var(--lime); }
+  @media (min-width: 768px) { .nav-links { display: flex; } }
+
+  .cart-btn {
+    position: relative; width: 40px; height: 40px; border-radius: 50%;
+    border: 1px solid var(--hair); display: flex; align-items: center; justify-content: center;
+    transition: border-color 0.2s;
+  }
+  .cart-btn:hover { border-color: rgba(204,255,0,0.6); }
+  .cart-badge {
+    position: absolute; top: -6px; right: -6px; background: var(--lime); color: var(--ink);
+    font-size: 10px; font-weight: 700; min-width: 18px; height: 18px; border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  main { padding-top: 64px; }
+
+  /* ---------- Hero ---------- */
+  .hero { position: relative; overflow: hidden; border-bottom: 1px solid var(--hair); }
+  .hero .wrap {
+    padding: 48px 20px 56px; display: grid; gap: 48px; align-items: center;
+  }
+  @media (min-width: 640px) { .hero .wrap { padding: 48px 32px 56px; } }
+  @media (min-width: 768px) { .hero .wrap { grid-template-columns: 1fr 1fr; padding-top: 80px; padding-bottom: 96px; gap: 32px; } }
+
+  .eyebrow {
+    display: inline-flex; align-items: center; gap: 8px; font-size: 11px; text-transform: uppercase;
+    color: var(--lime); border: 1px solid rgba(204,255,0,0.3); background: rgba(204,255,0,0.05);
+    padding: 6px 14px; border-radius: 999px; margin-bottom: 24px;
+  }
+  .pulse-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--lime); animation: pulse 1.6s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+
+  .hero h1 {
+    font-family: 'Arial Narrow', 'Helvetica Neue Condensed', Impact, sans-serif;
+    font-weight: 900; text-transform: uppercase;
+    font-size: 3rem; line-height: 0.95; margin-bottom: 24px;
+  }
+  @media (min-width: 480px) { .hero h1 { font-size: 3.6rem; } }
+  @media (min-width: 768px) { .hero h1 { font-size: 3.4rem; } }
+  @media (min-width: 1024px) { .hero h1 { font-size: 4rem; } }
+  .hero h1 .accent { color: var(--lime); }
+
+  .hero p.lead { color: var(--smoke); font-size: 1rem; max-width: 420px; margin-bottom: 32px; line-height: 1.65; }
+  @media (min-width: 640px) { .hero p.lead { font-size: 1.125rem; } }
+
+  .hero-cta { display: flex; flex-direction: column; gap: 12px; max-width: 380px; }
+  .hero-cta .note { font-size: 11px; color: var(--smoke); text-align: center; text-transform: uppercase; }
+
+  .product-visual {
+    position: relative; margin: 0 auto; max-width: 380px; aspect-ratio: 4 / 5;
+    border-radius: 20px; background: var(--panel); border: 1px solid var(--hair);
+    padding: 32px; display: flex; align-items: center; justify-content: center;
+  }
+  .spec-tags { position: absolute; bottom: 16px; left: 16px; right: 16px; display: flex; flex-wrap: wrap; gap: 8px; }
+  .spec-tag { background: rgba(11,11,12,0.8); border: 1px solid var(--hair); font-size: 10px; text-transform: uppercase; padding: 4px 8px; border-radius: 6px; }
+  .spec-tag.on { color: var(--lime); }
+  .spec-tag.off { color: var(--smoke); }
+
+  /* ---------- Trust bar ---------- */
+  .trust-bar { border-bottom: 1px solid var(--hair); background: var(--panel); }
+  .trust-bar .wrap { padding: 24px 20px; display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  @media (min-width: 640px) { .trust-bar .wrap { padding: 24px 32px; } }
+  @media (min-width: 768px) { .trust-bar .wrap { grid-template-columns: repeat(4, 1fr); gap: 16px; } }
+  .trust-item { display: flex; align-items: center; gap: 12px; }
+  .trust-item svg { color: var(--lime); flex-shrink: 0; }
+  .trust-item span { font-size: 13px; color: var(--smoke); font-weight: 500; line-height: 1.3; }
+  @media (min-width: 640px) { .trust-item span { font-size: 14px; } }
+
+  /* ---------- Section heading ---------- */
+  .section { padding: 80px 0; }
+  @media (min-width: 768px) { .section { padding: 112px 0; } }
+  .section-head { margin-bottom: 56px; max-width: 560px; }
+  .section-head .tag { font-size: 11px; text-transform: uppercase; color: var(--lime); letter-spacing: 0.2em; }
+  .section-head h2 {
+    font-family: 'Arial Narrow', 'Helvetica Neue Condensed', Impact, sans-serif;
+    font-weight: 900; text-transform: uppercase; font-size: 2.4rem; line-height: 0.95; margin-top: 12px;
+  }
+  @media (min-width: 640px) { .section-head h2 { font-size: 3rem; } }
+
+  /* ---------- Features grid ---------- */
+  .features-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+  @media (min-width: 640px) { .features-grid { grid-template-columns: 1fr 1fr; } }
+  .feature-card {
+    background: var(--panel); border: 1px solid var(--hair); border-radius: 16px; padding: 28px;
+    transition: border-color 0.2s;
+  }
+  .feature-card:hover { border-color: rgba(204,255,0,0.4); }
+  .feature-top { display: flex; align-items: flex-start; justify-content: space-between; margin-bottom: 24px; }
+  .feature-icon { width: 48px; height: 48px; border-radius: 12px; background: rgba(204,255,0,0.1); color: var(--lime); display: flex; align-items: center; justify-content: center; }
+  .feature-code { font-size: 10px; color: rgba(156,156,163,0.6); text-transform: uppercase; }
+  .feature-card h3 { font-size: 18px; font-weight: 700; margin-bottom: 8px; }
+  .feature-card p { color: var(--smoke); font-size: 14px; line-height: 1.6; }
+
+  /* ---------- Oferta ---------- */
+  .offer-section { border-top: 1px solid var(--hair); border-bottom: 1px solid var(--hair); background: var(--panel); }
+  .offer-section .wrap { max-width: 800px; padding: 64px 20px; }
+  @media (min-width: 640px) { .offer-section .wrap { padding: 64px 32px; } }
+  @media (min-width: 768px) { .offer-section .wrap { padding: 80px 32px; } }
+
+  .offer-card {
+    background: var(--ink); border: 1px solid var(--hair); border-radius: 24px;
+    padding: 24px; position: relative; overflow: hidden;
+  }
+  @media (min-width: 640px) { .offer-card { padding: 40px; } }
+  .offer-glow { position: absolute; top: -40px; right: -40px; width: 160px; height: 160px; background: rgba(204,255,0,0.1); border-radius: 50%; filter: blur(50px); }
+
+  .offer-row { display: flex; align-items: center; justify-content: space-between; margin-bottom: 32px; position: relative; }
+  .sku { font-size: 11px; text-transform: uppercase; color: var(--smoke); letter-spacing: 0.2em; }
+  .discount-badge {
+    display: inline-flex; align-items: center; gap: 6px; background: rgba(255,90,31,0.15); color: var(--fire);
+    font-size: 11px; font-weight: 700; text-transform: uppercase; padding: 5px 14px; border-radius: 999px;
+    letter-spacing: 0.05em;
+  }
+
+  .price-row { display: flex; align-items: flex-end; gap: 16px; margin-bottom: 32px; position: relative; }
+  .price-now {
+    font-family: 'Arial Narrow', 'Helvetica Neue Condensed', Impact, sans-serif;
+    font-weight: 900; color: var(--lime); font-size: 3.4rem; line-height: 1;
+  }
+  @media (min-width: 640px) { .price-now { font-size: 4.2rem; } }
+  .price-was { color: var(--smoke); text-decoration: line-through; font-size: 1.25rem; margin-bottom: 4px; }
+
+  .field-label { font-size: 12px; text-transform: uppercase; color: var(--smoke); letter-spacing: 0.15em; margin-bottom: 12px; }
+  .color-picker { display: flex; gap: 12px; margin-bottom: 28px; flex-wrap: wrap; }
+  .swatch {
+    display: flex; align-items: center; gap: 8px; border: 1px solid var(--hair); border-radius: 12px;
+    padding: 12px 16px; font-size: 14px; font-weight: 500; transition: border-color 0.2s;
+  }
+  .swatch:hover { border-color: rgba(204,255,0,0.5); }
+  .swatch.active { outline: 2px solid var(--lime); outline-offset: 3px; }
+  .dot { width: 16px; height: 16px; border-radius: 50%; border: 1px solid var(--hair); }
+
+  .stock-block { margin-bottom: 32px; }
+  .stock-labels { display: flex; justify-content: space-between; font-size: 11px; color: var(--smoke); text-transform: uppercase; margin-bottom: 8px; letter-spacing: 0.1em; }
+  .stock-track { height: 6px; width: 100%; background: var(--hair); border-radius: 999px; overflow: hidden; }
+  .stock-fill { height: 100%; width: 23%; background: var(--lime); border-radius: 999px; }
+
+  .offer-card .btn-primary { width: 100%; font-size: 18px; padding: 16px; }
+  .offer-note { text-align: center; font-size: 11px; color: var(--smoke); text-transform: uppercase; margin-top: 16px; letter-spacing: 0.1em; }
+
+  /* ---------- Reviews ---------- */
+  .reviews-grid { display: grid; gap: 20px; grid-template-columns: 1fr; }
+  @media (min-width: 768px) { .reviews-grid { grid-template-columns: repeat(3, 1fr); } }
+  .review-card { background: var(--panel); border: 1px solid var(--hair); border-radius: 16px; padding: 24px; }
+  .stars { color: var(--lime); margin-bottom: 16px; letter-spacing: 2px; }
+  .review-card p.quote { color: var(--smoke); font-size: 14px; line-height: 1.65; margin-bottom: 16px; }
+  .review-card .author { font-family: 'Courier New', monospace; font-size: 12px; }
+
+  /* ---------- FAQ ---------- */
+  .faq-section { border-top: 1px solid var(--hair); background: var(--panel); }
+  .faq-section .wrap { max-width: 760px; }
+  .accordion-list { display: flex; flex-direction: column; gap: 12px; }
+  .accordion-item { border: 1px solid var(--hair); border-radius: 16px; overflow: hidden; background: var(--ink); }
+  .accordion-trigger { width: 100%; display: flex; align-items: center; justify-content: space-between; padding: 20px 24px; text-align: left; }
+  .accordion-trigger span.q { font-weight: 600; }
+  .chevron { color: var(--lime); font-size: 22px; line-height: 1; font-weight: 300; transition: transform 0.3s ease; }
+  .accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; padding: 0 24px; }
+  .accordion-content p { color: var(--smoke); font-size: 14px; line-height: 1.65; padding-bottom: 20px; }
+  .accordion-item.open .accordion-content { max-height: 320px; }
+  .accordion-item.open .chevron { transform: rotate(45deg); }
+
+  /* ---------- Footer ---------- */
+  .site-footer .wrap {
+    padding: 48px 20px; display: flex; flex-direction: column; align-items: center; gap: 16px; text-align: center;
+  }
+  @media (min-width: 640px) { .site-footer .wrap { flex-direction: row; justify-content: space-between; padding: 48px 32px; text-align: left; } }
+  .site-footer .copy { font-family: 'Courier New', monospace; font-size: 11px; color: var(--smoke); text-transform: uppercase; letter-spacing: 0.1em; }
+
+  /* ---------- Mobile sticky CTA ---------- */
+  .mobile-cta {
+    position: fixed; bottom: 0; left: 0; right: 0; z-index: 50;
+    background: rgba(11,11,12,0.96); backdrop-filter: blur(10px);
+    border-top: 1px solid var(--hair);
+    padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+  }
+  .mobile-cta.visible { transform: translateY(0); }
+  .mobile-cta .btn-primary { width: 100%; padding: 14px; font-size: 16px; }
+  @media (min-width: 768px) { .mobile-cta { display: none; } }
+
+  @media (prefers-reduced-motion: reduce) {
+    * { animation: none !important; transition: none !important; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ NAVBAR ============ -->
+<header class="site-header">
+  <div class="wrap">
+    <a href="#" class="logo logo-mark">PURE<span>LIFT</span></a>
+
+    <nav class="nav-links font-mono">
+      <a href="#features">Características</a>
+      <a href="#reviews">Reseñas</a>
+      <a href="#faq">FAQ</a>
+    </nav>
+
+    <button aria-label="Carrito" class="cart-btn">
+      <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg>
+      <span id="cart-badge" class="cart-badge font-mono">0</span>
+    </button>
+  </div>
+</header>
+
+<main>
+
+  <!-- ============ HERO ============ -->
+  <section class="hero grid-bg">
+    <div class="wrap">
+
+      <div>
+        <div class="eyebrow font-mono">
+          <span class="pulse-dot"></span>
+          Equipo táctico // Drop de lanzamiento
+        </div>
+
+        <h1>La armadura<br>definitiva para<br><span class="accent">tu equipo</span> de gym</h1>
+
+        <p class="lead">45 litros de capacidad militarizada para quienes no viajan ligeros: pesas, zapatillas, ropa de sobra y equipo de recuperación, todo en un solo compartimento indestructible.</p>
+
+        <div class="hero-cta">
+          <a href="#oferta" class="btn-primary">
+            Comprar ahora — 49,99&nbsp;€
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M12 5l7 7-7 7"/></svg>
+          </a>
+          <p class="note font-mono">Antes 75€ · Envío gratis 48h · Stock limitado</p>
+        </div>
+      </div>
+
+      <div class="product-visual diagonal-stripes">
+        <span class="corner corner-tl"></span><span class="corner corner-tr"></span>
+        <span class="corner corner-bl"></span><span class="corner corner-br"></span>
+
+        <svg viewBox="0 0 200 240" style="width: 78%; filter: drop-shadow(0 30px 40px rgba(0,0,0,0.55));">
+          <rect x="35" y="20" width="130" height="200" rx="26" fill="#1D1D20" stroke="#3a3a3f" stroke-width="2"/>
+          <rect x="35" y="20" width="130" height="200" rx="26" fill="none" stroke="#CCFF00" stroke-width="1" stroke-dasharray="2 6" opacity="0.5"/>
+          <rect x="55" y="46" width="90" height="70" rx="10" fill="#141416" stroke="#3a3a3f" stroke-width="1.5"/>
+          <rect x="55" y="130" width="90" height="60" rx="10" fill="#141416" stroke="#3a3a3f" stroke-width="1.5"/>
+          <rect x="20" y="55" width="15" height="60" rx="6" fill="#26262a"/>
+          <rect x="165" y="55" width="15" height="60" rx="6" fill="#26262a"/>
+          <path d="M60 20 Q60 -8 100 -8 Q140 -8 140 20" fill="none" stroke="#3a3a3f" stroke-width="10" stroke-linecap="round"/>
+          <path d="M60 20 Q60 -8 100 -8 Q140 -8 140 20" fill="none" stroke="#CCFF00" stroke-width="2" stroke-linecap="round" opacity="0.6"/>
+          <circle cx="100" cy="150" r="14" fill="none" stroke="#CCFF00" stroke-width="2" opacity="0.7"/>
+          <circle cx="100" cy="150" r="4" fill="#CCFF00"/>
+        </svg>
+
+        <div class="spec-tags font-mono">
+          <span class="spec-tag on">45L // CAP-MAX</span>
+          <span class="spec-tag off">MIL-SPEC NYLON</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ============ TRUST BAR ============ -->
+  <section class="trust-bar">
+    <div class="wrap">
+      <div class="trust-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="1" y="3" width="15" height="13"/><path d="M16 8h4l3 3v5h-7V8z"/><circle cx="5.5" cy="18.5" r="2.5"/><circle cx="18.5" cy="18.5" r="2.5"/></svg>
+        <span>Envío gratis en 48h</span>
+      </div>
+      <div class="trust-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        <span>Devolución 30 días</span>
+      </div>
+      <div class="trust-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-11V5l-8-3-8 3v6c0 7 8 11 8 11z"/></svg>
+        <span>Pago 100% seguro</span>
+      </div>
+      <div class="trust-item">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l2.9 6.3 6.9.9-5 4.9 1.2 6.9-6-3.3-6 3.3 1.2-6.9-5-4.9 6.9-.9L12 2z"/></svg>
+        <span>+2.500 reseñas verificadas</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ FEATURES ============ -->
+  <section id="features" class="section">
+    <div class="wrap">
+      <div class="section-head">
+        <span class="tag font-mono">Ficha técnica</span>
+        <h2>Construida para cargar,<br>no para aparentar</h2>
+      </div>
+
+      <div class="features-grid">
+
+        <div class="feature-card">
+          <div class="feature-top">
+            <div class="feature-icon">
+              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 7l9-4 9 4-9 4-9-4z"/><path d="M3 7v10l9 4 9-4V7"/><path d="M12 11v10"/></svg>
+            </div>
+            <span class="feature-code font-mono">CAP–45</span>
+          </div>
+          <h3>45L de capacidad real</h3>
+          <p>Suficiente para cinturón de fuerza, muñequeras, dos
