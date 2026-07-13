@@ -3,1032 +3,1903 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Grip & Grind | Accesorios Fitness de Alto Rendimiento</title>
-<meta name="description" content="Grip & Grind — straps, muñequeras, magnesio líquido y accesorios de agarre para atletas serios. Envío en 24-48h.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Oswald:wght@500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<title>ZETALCUBO — Streetwear Premium</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
-  /* ---------- Reset & Base ---------- */
-  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
-  html { scroll-behavior: smooth; }
-  :root {
-    --bg-primary: #121212;
-    --bg-secondary: #1a1a1a;
-    --bg-card: #1e1e1e;
-    --accent-lime: #ccff00;
-    --accent-lime-dark: #a8d600;
-    --accent-orange: #ff5722;
-    --text-primary: #f5f5f5;
-    --text-secondary: #9a9a9a;
-    --border-color: #2a2a2a;
-    --radius: 12px;
-    --knurl: repeating-linear-gradient(45deg, rgba(204,255,0,.5) 0px, rgba(204,255,0,.5) 1px, transparent 1px, transparent 8px),
-             repeating-linear-gradient(-45deg, rgba(204,255,0,.5) 0px, rgba(204,255,0,.5) 1px, transparent 1px, transparent 8px);
-  }
-  body {
-    font-family: 'Manrope', sans-serif;
-    background: var(--bg-primary);
-    color: var(--text-primary);
-    line-height: 1.6;
-    overflow-x: hidden;
-  }
-  a { text-decoration: none; color: inherit; }
-  ul { list-style: none; }
-  img { max-width: 100%; display: block; }
-  button { font-family: inherit; cursor: pointer; border: none; background: none; color: inherit; }
-  input { font-family: inherit; }
-  h1, h2, h3, h4 { font-family: 'Oswald', sans-serif; text-transform: uppercase; letter-spacing: .3px; }
-  a:focus-visible, button:focus-visible, input:focus-visible {
-    outline: 2px solid var(--accent-lime);
-    outline-offset: 3px;
-  }
-  .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+:root {
+  --black: #0A0A0A;
+  --dark: #141414;
+  --gray: #2A2A2A;
+  --gray-light: #3A3A3A;
+  --white: #F5F5F5;
+  --pure-white: #FFFFFF;
+  --gold: #E5C100;
+  --gold-dim: #B89A00;
+}
 
-  /* ---------- View switching (button-based navigation) ---------- */
-  .view { display: none; }
-  .view.active { display: block; animation: viewIn .35s ease; }
-  @keyframes viewIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-  .back-link {
-    display: inline-flex; align-items: center; gap: .4rem;
-    color: var(--text-secondary);
-    font-family: 'Oswald', sans-serif;
-    font-size: .8rem; letter-spacing: 1.5px; text-transform: uppercase;
-    margin: 2.5rem 0 1.5rem;
-    cursor: pointer;
-    transition: color .2s ease;
-  }
-  .back-link:hover { color: var(--accent-lime); }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; }
 
-  /* ---------- Header ---------- */
-  .header {
-    position: sticky; top: 0; z-index: 1000;
-    background: rgba(18, 18, 18, .88);
-    backdrop-filter: blur(10px);
-    -webkit-backdrop-filter: blur(10px);
-    border-bottom: 1px solid var(--border-color);
-    transition: box-shadow .3s ease;
-  }
-  .header.scrolled { box-shadow: 0 8px 24px rgba(0,0,0,.45); }
-  .header-inner { display: flex; align-items: center; justify-content: space-between; height: 74px; gap: 1rem; }
-  .logo { font-weight: 700; font-size: 1.4rem; letter-spacing: 1.5px; white-space: nowrap; cursor: pointer; }
-  .logo-accent { color: var(--accent-lime); }
-  .nav { display: flex; }
-  .nav-list { display: flex; gap: 2.4rem; }
-  .nav-link {
-    font-family: 'Oswald', sans-serif; font-weight: 500; font-size: .85rem;
-    letter-spacing: 1px; text-transform: uppercase;
-    position: relative; padding: .4rem 0; cursor: pointer;
-    transition: color .25s ease; background: none; border: none;
-  }
-  .nav-link::after {
-    content: ''; position: absolute; left: 0; bottom: -2px; width: 0; height: 2px;
-    background: var(--accent-lime); transition: width .25s ease;
-  }
-  .nav-link:hover, .nav-link.active { color: var(--accent-lime); }
-  .nav-link:hover::after, .nav-link.active::after { width: 100%; }
-  .header-actions { display: flex; align-items: center; gap: .8rem; }
-  .cart-btn {
-    position: relative; font-size: 1.3rem; width: 44px; height: 44px;
-    display: flex; align-items: center; justify-content: center; border-radius: 50%;
-    background: var(--bg-card); border: 1px solid var(--border-color);
-    transition: border-color .25s ease, transform .25s ease;
-  }
-  .cart-btn:hover { border-color: var(--accent-lime); transform: translateY(-2px); }
-  .cart-count {
-    position: absolute; top: -4px; right: -4px; background: var(--accent-orange); color: #fff;
-    font-family: 'Oswald', sans-serif; font-size: .68rem; font-weight: 700;
-    width: 19px; height: 19px; border-radius: 50%;
-    display: flex; align-items: center; justify-content: center;
-    border: 2px solid var(--bg-primary);
-  }
-  .menu-toggle { display: none; flex-direction: column; justify-content: center; gap: 5px; width: 32px; height: 32px; }
-  .menu-toggle span { display: block; height: 2px; width: 100%; background: var(--text-primary); border-radius: 2px; transition: transform .3s ease, opacity .3s ease; }
-  .menu-toggle.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .menu-toggle.open span:nth-child(2) { opacity: 0; }
-  .menu-toggle.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--black);
+  color: var(--white);
+  overflow-x: hidden;
+  -webkit-font-smoothing: antialiased;
+}
 
-  @media (max-width: 860px) {
-    .nav {
-      position: fixed; top: 74px; left: 0; right: 0;
-      background: var(--bg-secondary); border-bottom: 1px solid var(--border-color);
-      flex-direction: column; transform: translateY(-130%); opacity: 0; visibility: hidden;
-      transition: transform .3s ease, opacity .3s ease, visibility .3s; z-index: 999;
-    }
-    .nav.open { transform: translateY(0); opacity: 1; visibility: visible; }
-    .nav-list { flex-direction: column; align-items: center; gap: 1.4rem; padding: 2rem 0; }
-    .menu-toggle { display: flex; }
-  }
+/* ===== LIQUID GLASS EFFECT ===== */
+.liquid-glass {
+  background: rgba(255,255,255,0.03);
+  backdrop-filter: blur(20px) saturate(180%);
+  -webkit-backdrop-filter: blur(20px) saturate(180%);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 
+    0 8px 32px rgba(0,0,0,0.3),
+    inset 0 1px 0 rgba(255,255,255,0.1),
+    inset 0 -1px 0 rgba(255,255,255,0.05);
+  position: relative;
+  overflow: hidden;
+}
 
-  /* ---------- Buttons ---------- */
-  .btn {
-    display: inline-flex; align-items: center; justify-content: center; gap: .5rem;
-    padding: .95rem 2.1rem; border-radius: 8px;
-    font-family: 'Oswald', sans-serif; font-weight: 600; font-size: .9rem;
-    letter-spacing: 1px; text-transform: uppercase;
-    transition: transform .2s ease, box-shadow .2s ease, background .2s ease, color .2s ease;
-    cursor: pointer;
-  }
-  .btn-primary { background: var(--accent-lime); color: #121212; }
-  .btn-primary:hover { background: var(--accent-lime-dark); transform: translateY(-2px); box-shadow: 0 10px 24px rgba(204,255,0,.22); }
-  .btn-outline { border: 2px solid #3a3a3a; color: var(--text-primary); }
-  .btn-outline:hover { border-color: var(--accent-lime); color: var(--accent-lime); }
-  .btn-block { width: 100%; }
+.liquid-glass::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, transparent 40%, transparent 60%, rgba(255,255,255,0.05) 100%);
+  pointer-events: none;
+  border-radius: inherit;
+}
 
-  /* ---------- Hero ---------- */
-  .hero { position: relative; padding: 4rem 0; overflow: hidden; }
-  .hero-bg {
-    position: absolute; inset: 0;
-    background:
-      radial-gradient(circle at 85% 15%, rgba(204,255,0,.07), transparent 45%),
-      radial-gradient(circle at 5% 90%, rgba(255,87,34,.07), transparent 45%);
-    z-index: 0;
-  }
-  .hero-inner { position: relative; z-index: 1; display: grid; grid-template-columns: 1.15fr .85fr; gap: 3rem; align-items: center; }
-  .hero-badge {
-    display: inline-block; background: var(--bg-card); border: 1px solid var(--border-color);
-    padding: .5rem 1.1rem; border-radius: 30px; font-size: .78rem; font-weight: 600;
-    letter-spacing: .3px; margin-bottom: 1.6rem;
-  }
-  .hero-title { font-weight: 700; font-size: clamp(2.1rem, 5vw, 3.5rem); line-height: 1.08; margin-bottom: 1.3rem; }
-  .text-accent { color: var(--accent-lime); }
-  .hero-subtitle { font-size: 1.08rem; color: var(--text-secondary); max-width: 480px; margin-bottom: 2.1rem; }
-  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; }
+.liquid-glass::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(ellipse at 30% 20%, rgba(255,255,255,0.08) 0%, transparent 50%);
+  pointer-events: none;
+}
 
-  .hero-visual { display: flex; align-items: center; justify-content: center; }
-  .hero-plate {
-    position: relative; width: 320px; height: 320px; border-radius: 50%; overflow: hidden;
-    border: 10px solid #202020;
-    box-shadow: inset 0 0 0 3px rgba(204,255,0,.14), 0 25px 60px rgba(0,0,0,.55);
-  }
-  .hero-plate img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .hero-plate::after {
-    content: ''; position: absolute; inset: 0; border-radius: 50%;
-    background-image: var(--knurl); opacity: .22; mix-blend-mode: overlay;
-    animation: grind 60s linear infinite; pointer-events: none;
-  }
-  @keyframes grind { from { transform: rotate(0deg); } to { transform: rotate(360deg); } }
+.liquid-glass-strong {
+  background: rgba(255,255,255,0.06);
+  backdrop-filter: blur(40px) saturate(200%);
+  -webkit-backdrop-filter: blur(40px) saturate(200%);
+  border: 1px solid rgba(255,255,255,0.12);
+  box-shadow: 
+    0 12px 48px rgba(0,0,0,0.4),
+    inset 0 1px 0 rgba(255,255,255,0.15),
+    inset 0 -1px 0 rgba(255,255,255,0.05);
+}
 
-  @media (max-width: 900px) {
-    .hero-inner { grid-template-columns: 1fr; text-align: center; }
-    .hero-subtitle { margin-left: auto; margin-right: auto; }
-    .hero-actions { justify-content: center; }
-    .hero-visual { order: -1; margin-bottom: 1rem; }
-    .hero-plate { width: 230px; height: 230px; }
-  }
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(40px); }
+  to { opacity: 1; transform: translateY(0); }
+}
 
-  /* ---------- Trust bar ---------- */
-  .trust-bar { background: var(--bg-secondary); border-top: 1px solid var(--border-color); border-bottom: 1px solid var(--border-color); padding: 1.7rem 0; }
-  .trust-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1rem; text-align: center; }
-  .trust-icon { font-size: 1.6rem; display: block; margin-bottom: .4rem; }
-  .trust-item p { font-size: .84rem; color: var(--text-secondary); font-weight: 600; }
-  @media (max-width: 700px) { .trust-grid { grid-template-columns: repeat(2, 1fr); gap: 1.6rem; } }
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
 
-  /* ---------- Section header ---------- */
-  .section-header { text-align: center; max-width: 600px; margin: 0 auto 3rem; }
-  .section-tag {
-    display: inline-block; color: var(--accent-lime); font-family: 'Oswald', sans-serif;
-    font-weight: 600; font-size: .78rem; letter-spacing: 2.5px; text-transform: uppercase; margin-bottom: .9rem;
-  }
-  .section-tag.alt { color: var(--accent-orange); }
-  .section-title { font-weight: 700; font-size: clamp(1.7rem, 4vw, 2.5rem); margin-bottom: .8rem; }
-  .section-subtitle { color: var(--text-secondary); font-size: 1rem; }
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.9); }
+  to { opacity: 1; transform: scale(1); }
+}
 
-  /* ---------- Products ---------- */
-  .products { padding: 4.5rem 0; }
-  .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 1.7rem; }
-  .product-card {
-    background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius);
-    overflow: hidden; display: flex; flex-direction: column; position: relative;
-    transition: transform .3s ease, border-color .3s ease, box-shadow .3s ease;
-  }
-  .product-card:hover { transform: translateY(-7px); border-color: var(--accent-lime); box-shadow: 0 16px 34px rgba(0,0,0,.4); }
-  .product-badge {
-    position: absolute; top: 12px; left: 12px; z-index: 2; background: var(--accent-orange); color: #fff;
-    font-family: 'Oswald', sans-serif; font-size: .68rem; font-weight: 600; letter-spacing: .4px;
-    text-transform: uppercase; padding: .35rem .7rem; border-radius: 20px;
-  }
-  .product-image { height: 190px; overflow: hidden; position: relative; background: var(--bg-card); }
-  .product-image img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
-  .product-card:hover .product-image img { transform: scale(1.08); }
-  .product-info { padding: 1.3rem 1.4rem 1.5rem; display: flex; flex-direction: column; flex: 1; }
-  .product-title { font-family: 'Manrope', sans-serif; font-weight: 700; font-size: 1.02rem; text-transform: none; letter-spacing: 0; margin-bottom: .35rem; }
-  .product-rating { font-size: .8rem; color: var(--text-secondary); margin-bottom: .8rem; }
-  .product-rating .stars { color: var(--accent-lime); }
-  .product-price { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.5rem; color: var(--accent-lime); margin-top: auto; margin-bottom: 1rem; }
-  .add-to-cart {
-    background: transparent; border: 2px solid var(--accent-lime); color: var(--accent-lime);
-    padding: .7rem; border-radius: 8px; font-family: 'Oswald', sans-serif; font-weight: 600;
-    font-size: .82rem; letter-spacing: 1px; text-transform: uppercase; width: 100%;
-    transition: background .22s ease, color .22s ease, transform .15s ease;
-  }
-  .add-to-cart:hover { background: var(--accent-lime); color: #121212; }
-  .add-to-cart.added { background: var(--accent-lime); color: #121212; transform: scale(.98); }
-  .view-all-wrap { text-align: center; margin-top: 2.8rem; }
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
 
-  /* ---------- Packs ---------- */
-  .packs { padding: 4.5rem 0; background: var(--bg-secondary); position: relative; }
-  .packs-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
-  .packs-grid.single-pack { grid-template-columns: minmax(280px, 400px); justify-content: center; }
-  .pack-card {
-    background: linear-gradient(160deg, var(--bg-card), #191919); border: 1px solid var(--border-color);
-    border-radius: 16px; padding: 1.6rem; position: relative; overflow: hidden;
-    transition: transform .3s ease, border-color .3s ease;
-  }
-  .pack-card:hover { transform: translateY(-6px); border-color: var(--accent-orange); }
-  .pack-card.featured { border-color: var(--accent-lime); }
-  .pack-image { height: 150px; border-radius: 10px; overflow: hidden; margin-bottom: 1.3rem; position: relative; }
-  .pack-image img { width: 100%; height: 100%; object-fit: cover; display: block; }
-  .pack-discount {
-    position: absolute; top: 10px; right: 10px; z-index: 2; background: var(--accent-orange); color: #fff;
-    font-family: 'Oswald', sans-serif; font-weight: 700; font-size: .8rem; letter-spacing: .4px;
-    padding: .4rem 1rem; border-radius: 20px;
-  }
-  .pack-title { font-weight: 700; font-size: 1.25rem; margin-bottom: .7rem; }
-  .pack-items { color: var(--text-secondary); font-size: .9rem; margin-bottom: 1.4rem; line-height: 1.85; text-transform: none; letter-spacing: 0; }
-  .pack-items li::before { content: '+ '; color: var(--accent-lime); font-weight: 700; }
-  .pack-price-row { display: flex; align-items: baseline; gap: .7rem; margin-bottom: 1.3rem; flex-wrap: wrap; }
-  .pack-price-old { color: var(--text-secondary); text-decoration: line-through; font-size: 1rem; font-family: 'Oswald', sans-serif; }
-  .pack-price-new { font-family: 'Oswald', sans-serif; font-weight: 700; font-size: 1.7rem; color: var(--accent-lime); }
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
 
-  /* ---------- Contact view ---------- */
-  .contact-page { padding: 4.5rem 0; }
-  .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; margin-top: 3rem; }
-  .contact-info-list { display: flex; flex-direction: column; gap: 1.2rem; }
-  .contact-info-card { display: flex; gap: 1rem; align-items: flex-start; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 1.2rem 1.4rem; }
-  .contact-info-icon { font-size: 1.4rem; }
-  .contact-info-card h4 { font-family: 'Manrope', sans-serif; text-transform: none; letter-spacing: 0; font-size: .95rem; font-weight: 700; margin-bottom: .25rem; }
-  .contact-info-card p { color: var(--text-secondary); font-size: .88rem; }
-  .contact-form-card { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); padding: 2rem; }
-  .contact-form-card h3 { font-family: 'Oswald', sans-serif; font-size: 1.15rem; margin-bottom: .6rem; }
-  .contact-form-card .section-subtitle { text-align: left; margin-bottom: 0; }
-  .contact-form-card .newsletter-form { margin-top: 1.4rem; }
-  .contact-form-card .newsletter-note { text-align: left; }
-  @media (max-width: 800px) { .contact-grid { grid-template-columns: 1fr; } }
+.animate-fade-in-up { animation: fadeInUp 0.8s ease-out forwards; }
+.animate-fade-in { animation: fadeIn 0.6s ease-out forwards; }
+.animate-scale-in { animation: scaleIn 0.6s ease-out forwards; }
+.animate-float { animation: float 4s ease-in-out infinite; }
 
-  .newsletter-form { display: flex; gap: .8rem; flex-wrap: wrap; }
-  .newsletter-form input {
-    flex: 1; min-width: 220px; padding: .9rem 1.2rem; border-radius: 8px;
-    border: 1px solid var(--border-color); background: var(--bg-primary); color: var(--text-primary); font-size: .95rem;
-  }
-  .newsletter-form input::placeholder { color: var(--text-secondary); }
-  .newsletter-form input:focus { outline: none; border-color: var(--accent-lime); }
-  .newsletter-note { font-size: .8rem; color: var(--text-secondary); margin-top: .9rem; }
+.delay-1 { animation-delay: 0.1s; opacity: 0; }
+.delay-2 { animation-delay: 0.2s; opacity: 0; }
+.delay-3 { animation-delay: 0.3s; opacity: 0; }
+.delay-4 { animation-delay: 0.4s; opacity: 0; }
+.delay-5 { animation-delay: 0.5s; opacity: 0; }
 
-  .faq-section { margin-top: 4.5rem; }
-  .faq-list { max-width: 720px; margin: 0 auto; display: flex; flex-direction: column; gap: .9rem; }
-  .faq-item { background: var(--bg-card); border: 1px solid var(--border-color); border-radius: var(--radius); overflow: hidden; }
-  .faq-item summary { padding: 1.1rem 1.4rem; cursor: pointer; font-weight: 700; font-size: .95rem; list-style: none; display: flex; justify-content: space-between; align-items: center; }
-  .faq-item summary::-webkit-details-marker { display: none; }
-  .faq-item summary::after { content: '+'; color: var(--accent-lime); font-size: 1.3rem; font-weight: 400; margin-left: 1rem; transition: transform .25s ease; }
-  .faq-item[open] summary::after { transform: rotate(45deg); }
-  .faq-item p { padding: 0 1.4rem 1.3rem; color: var(--text-secondary); font-size: .9rem; }
+/* ===== NAVBAR ===== */
+.navbar {
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  z-index: 1000;
+  padding: 16px 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: all 0.4s ease;
+}
 
-  /* ---------- Footer ---------- */
-  .footer { background: var(--bg-secondary); border-top: 1px solid var(--border-color); padding: 4rem 0 2rem; }
-  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 2.5rem; margin-bottom: 3rem; }
-  .footer-brand .logo { display: inline-block; margin-bottom: .9rem; }
-  .footer-brand p { color: var(--text-secondary); font-size: .9rem; max-width: 280px; }
-  .social-links { display: flex; gap: .7rem; margin-top: 1.3rem; }
-  .social-links a {
-    width: 38px; height: 38px; background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 50%;
-    display: flex; align-items: center; justify-content: center; font-size: 1rem;
-    transition: border-color .2s ease, transform .2s ease;
-  }
-  .social-links a:hover { border-color: var(--accent-lime); transform: translateY(-2px); }
-  .footer-col h4 { font-family: 'Oswald', sans-serif; font-size: .85rem; letter-spacing: 1.5px; margin-bottom: 1.2rem; font-weight: 600; }
-  .footer-col ul li { margin-bottom: .7rem; }
-  .footer-col a, .footer-col button { color: var(--text-secondary); font-size: .9rem; transition: color .2s ease; cursor: pointer; }
-  .footer-col a:hover, .footer-col button:hover { color: var(--accent-lime); }
-  .payment-methods { display: flex; gap: .5rem; flex-wrap: wrap; }
-  .payment-badge { background: var(--bg-card); border: 1px solid var(--border-color); padding: .4rem .75rem; border-radius: 6px; font-size: .72rem; font-weight: 700; letter-spacing: .3px; color: var(--text-secondary); }
-  .footer-bottom { border-top: 1px solid var(--border-color); padding-top: 2rem; text-align: center; color: var(--text-secondary); font-size: .84rem; }
-  @media (max-width: 820px) { .footer-grid { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 480px) { .footer-grid { grid-template-columns: 1fr; text-align: center; } .social-links, .payment-methods { justify-content: center; } }
+.navbar.scrolled {
+  background: rgba(10,10,10,0.85);
+  backdrop-filter: blur(30px) saturate(180%);
+  -webkit-backdrop-filter: blur(30px) saturate(180%);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  padding: 12px 40px;
+}
 
-  /* ---------- Cart drawer ---------- */
-  .cart-overlay { position: fixed; inset: 0; background: rgba(0,0,0,.6); z-index: 1400; opacity: 0; visibility: hidden; transition: opacity .3s ease, visibility .3s ease; }
-  .cart-overlay.active { opacity: 1; visibility: visible; }
-  .cart-drawer {
-    position: fixed; top: 0; right: -420px; width: 100%; max-width: 400px; height: 100vh; background: var(--bg-secondary);
-    z-index: 1500; display: flex; flex-direction: column; transition: right .35s cubic-bezier(.4,0,.2,1); box-shadow: -10px 0 40px rgba(0,0,0,.5);
-  }
-  .cart-drawer.open { right: 0; }
-  .cart-drawer-header { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem; border-bottom: 1px solid var(--border-color); }
-  .cart-drawer-header h3 { font-size: 1.05rem; }
-  .cart-close { font-size: 1.2rem; width: 36px; height: 36px; border-radius: 50%; background: var(--bg-card); border: 1px solid var(--border-color); }
-  .cart-items { flex: 1; overflow-y: auto; padding: 0 1.5rem; }
-  .cart-empty { color: var(--text-secondary); text-align: center; margin-top: 2.5rem; font-size: .92rem; }
-  .cart-item { display: flex; align-items: center; gap: 1rem; padding: 1.1rem 0; border-bottom: 1px solid var(--border-color); }
-  .cart-item-icon { width: 52px; height: 52px; border-radius: 8px; overflow: hidden; flex-shrink: 0; background: var(--bg-card); }
-  .cart-item-icon img { width: 100%; height: 100%; object-fit: cover; }
-  .cart-item-info { flex: 1; min-width: 0; }
-  .cart-item-name { font-size: .88rem; font-weight: 700; margin-bottom: .2rem; }
-  .cart-item-price { color: var(--accent-lime); font-family: 'Oswald', sans-serif; font-size: .85rem; font-weight: 600; }
-  .cart-item-qty { display: flex; align-items: center; gap: .6rem; margin-top: .5rem; }
-  .qty-btn { width: 24px; height: 24px; background: var(--bg-card); border-radius: 5px; font-size: .95rem; border: 1px solid var(--border-color); display: flex; align-items: center; justify-content: center; }
-  .qty-btn:hover { border-color: var(--accent-lime); }
-  .cart-item-remove { color: var(--text-secondary); font-size: 1.15rem; margin-left: auto; }
-  .cart-item-remove:hover { color: var(--accent-orange); }
-  .cart-footer { padding: 1.5rem; border-top: 1px solid var(--border-color); }
-  .cart-total-row { display: flex; justify-content: space-between; align-items: baseline; font-weight: 700; margin-bottom: 1.1rem; }
-  .cart-total-row span:last-child { font-family: 'Oswald', sans-serif; font-size: 1.3rem; color: var(--accent-lime); }
+.logo {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 4px;
+  color: var(--pure-white);
+  text-decoration: none;
+}
 
-  /* ---------- Toast ---------- */
-  .toast {
-    position: fixed; bottom: 28px; right: 28px; background: var(--bg-card); border: 1px solid var(--accent-lime); color: var(--text-primary);
-    padding: 1rem 1.4rem; border-radius: 10px; display: flex; align-items: center; gap: .7rem; font-weight: 600; font-size: .88rem;
-    transform: translateX(150%); opacity: 0; transition: transform .4s cubic-bezier(.4,0,.2,1), opacity .4s ease;
-    z-index: 2000; box-shadow: 0 12px 30px rgba(0,0,0,.45); max-width: 300px;
-  }
-  .toast.show { transform: translateX(0); opacity: 1; }
-  @media (max-width: 480px) { .toast { right: 16px; left: 16px; bottom: 16px; max-width: none; } }
+.logo span { color: var(--gold); }
 
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation-duration: .001ms !important; animation-iteration-count: 1 !important; transition-duration: .001ms !important; scroll-behavior: auto !important; }
-  }
+.nav-links {
+  display: flex;
+  gap: 36px;
+  list-style: none;
+}
+
+.nav-links a {
+  color: var(--white);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  position: relative;
+  transition: color 0.3s;
+}
+
+.nav-links a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--gold);
+  transition: width 0.3s ease;
+}
+
+.nav-links a:hover { color: var(--gold); }
+.nav-links a:hover::after { width: 100%; }
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.cart-btn {
+  position: relative;
+  background: none;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+  padding: 8px;
+  transition: color 0.3s;
+}
+
+.cart-btn:hover { color: var(--gold); }
+
+.cart-count {
+  position: absolute;
+  top: -2px;
+  right: -2px;
+  background: var(--gold);
+  color: var(--black);
+  font-size: 0.65rem;
+  font-weight: 700;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* ===== HERO ===== */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  padding: 120px 40px 80px;
+  overflow: hidden;
+}
+
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  background: 
+    radial-gradient(ellipse at 20% 50%, rgba(229,193,0,0.03) 0%, transparent 50%),
+    radial-gradient(ellipse at 80% 20%, rgba(255,255,255,0.02) 0%, transparent 40%);
+}
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  max-width: 1400px;
+  width: 100%;
+  align-items: center;
+}
+
+.hero-text h1 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(3rem, 8vw, 6.5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -2px;
+  margin-bottom: 24px;
+}
+
+.hero-text h1 .gold { color: var(--gold); }
+
+.hero-text .tagline {
+  font-size: 1.1rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px;
+}
+
+.hero-text p {
+  font-size: 1.05rem;
+  line-height: 1.7;
+  color: rgba(255,255,255,0.6);
+  max-width: 480px;
+  margin-bottom: 40px;
+}
+
+.cta-group {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 40px;
+  background: var(--gold);
+  color: var(--black);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform: translateX(-100%);
+  transition: transform 0.6s ease;
+}
+
+.btn-primary:hover::before { transform: translateX(100%); }
+.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(229,193,0,0.3); }
+
+.btn-secondary {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 16px 40px;
+  background: transparent;
+  color: var(--white);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: 1px solid rgba(255,255,255,0.2);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-secondary:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-2px);
+}
+
+/* ===== PRODUCT SHOWCASE ===== */
+.hero-product {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.product-glass-container {
+  width: 100%;
+  max-width: 500px;
+  aspect-ratio: 3/4;
+  border-radius: 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.product-img {
+  max-width: 90%;
+  max-height: 90%;
+  object-fit: contain;
+  filter: drop-shadow(0 20px 60px rgba(0,0,0,0.5));
+  transition: transform 0.6s ease;
+}
+
+.product-glass-container:hover .product-img {
+  transform: scale(1.05) rotate(-2deg);
+}
+
+.product-badge {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--gold);
+  color: var(--black);
+  padding: 8px 16px;
+  font-size: 0.75rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border-radius: 4px;
+}
+
+/* ===== MARQUEE ===== */
+.marquee-section {
+  padding: 30px 0;
+  overflow: hidden;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 20s linear infinite;
+}
+
+.marquee-item {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.2);
+  padding: 0 40px;
+  white-space: nowrap;
+}
+
+.marquee-item.gold { color: var(--gold); }
+
+/* ===== PRODUCT DETAIL ===== */
+.product-section {
+  padding: 100px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.section-header {
+  text-align: center;
+  margin-bottom: 80px;
+}
+
+.section-header h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  letter-spacing: -1px;
+  margin-bottom: 16px;
+}
+
+.section-header p {
+  color: rgba(255,255,255,0.5);
+  font-size: 1rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.product-detail-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 80px;
+  align-items: start;
+}
+
+.product-gallery {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.gallery-main {
+  border-radius: 20px;
+  overflow: hidden;
+  position: relative;
+}
+
+.gallery-main img {
+  width: 100%;
+  height: auto;
+  display: block;
+  transition: transform 0.6s ease;
+}
+
+.gallery-main:hover img { transform: scale(1.03); }
+
+.gallery-thumbs {
+  display: flex;
+  gap: 16px;
+}
+
+.thumb {
+  flex: 1;
+  border-radius: 12px;
+  overflow: hidden;
+  cursor: pointer;
+  border: 2px solid transparent;
+  transition: all 0.3s;
+  opacity: 0.6;
+}
+
+.thumb.active, .thumb:hover {
+  border-color: var(--gold);
+  opacity: 1;
+}
+
+.thumb img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.product-info h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.product-info .sku {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 2px;
+  margin-bottom: 24px;
+}
+
+.product-info .price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--gold);
+  margin-bottom: 32px;
+}
+
+.product-info .price .currency { font-size: 1.2rem; vertical-align: super; }
+
+.product-info .description {
+  color: rgba(255,255,255,0.6);
+  line-height: 1.8;
+  margin-bottom: 32px;
+}
+
+.size-selector {
+  margin-bottom: 32px;
+}
+
+.size-selector label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 12px;
+  color: rgba(255,255,255,0.5);
+}
+
+.size-options {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.size-btn {
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 1px solid rgba(255,255,255,0.15);
+  color: var(--white);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.size-btn:hover, .size-btn.active {
+  border-color: var(--gold);
+  background: rgba(229,193,0,0.1);
+  color: var(--gold);
+}
+
+.size-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+.add-to-cart-btn {
+  width: 100%;
+  padding: 20px;
+  background: var(--gold);
+  color: var(--black);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s;
+  margin-bottom: 16px;
+}
+
+.add-to-cart-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(229,193,0,0.3);
+}
+
+.add-to-cart-btn.added {
+  background: #22c55e;
+}
+
+.payment-methods {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.payment-methods span {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.3);
+  padding: 6px 12px;
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: 4px;
+}
+
+/* ===== FEATURES ===== */
+.features-section {
+  padding: 100px 40px;
+  background: linear-gradient(180deg, var(--black) 0%, var(--dark) 50%, var(--black) 100%);
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 32px;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.feature-card {
+  padding: 48px 32px;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.4s ease;
+}
+
+.feature-card:hover {
+  transform: translateY(-8px);
+  border-color: rgba(229,193,0,0.2);
+}
+
+.feature-icon {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 24px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 16px;
+  background: rgba(229,193,0,0.1);
+  border: 1px solid rgba(229,193,0,0.2);
+}
+
+.feature-icon svg {
+  width: 28px;
+  height: 28px;
+  stroke: var(--gold);
+}
+
+.feature-card h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+
+.feature-card p {
+  color: rgba(255,255,255,0.5);
+  font-size: 0.9rem;
+  line-height: 1.6;
+}
+
+/* ===== LOOKBOOK ===== */
+.lookbook-section {
+  padding: 100px 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.lookbook-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  grid-template-rows: 300px 300px;
+  gap: 16px;
+}
+
+.lookbook-item {
+  border-radius: 16px;
+  overflow: hidden;
+  position: relative;
+  cursor: pointer;
+}
+
+.lookbook-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.lookbook-item:hover img { transform: scale(1.08); }
+
+.lookbook-item.large { grid-row: span 2; }
+
+.lookbook-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.7) 0%, transparent 50%);
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.lookbook-item:hover .lookbook-overlay { opacity: 1; }
+
+.lookbook-overlay span {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: var(--gold);
+}
+
+/* ===== ABOUT ===== */
+.about-section {
+  padding: 120px 40px;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-bg-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(8rem, 20vw, 16rem);
+  font-weight: 700;
+  color: rgba(255,255,255,0.02);
+  white-space: nowrap;
+  pointer-events: none;
+  letter-spacing: 20px;
+}
+
+.about-content {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+
+.about-content h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  font-weight: 700;
+  margin-bottom: 32px;
+}
+
+.about-content p {
+  font-size: 1.1rem;
+  line-height: 1.9;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 20px;
+}
+
+.about-stats {
+  display: flex;
+  justify-content: center;
+  gap: 60px;
+  margin-top: 60px;
+  flex-wrap: wrap;
+}
+
+.stat-item h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.stat-item p {
+  font-size: 0.85rem;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.4);
+}
+
+/* ===== FOOTER ===== */
+.footer {
+  padding: 80px 40px 40px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr 1fr;
+  gap: 60px;
+  max-width: 1200px;
+  margin: 0 auto 60px;
+}
+
+.footer-brand .logo { margin-bottom: 20px; display: inline-block; }
+
+.footer-brand p {
+  color: rgba(255,255,255,0.4);
+  font-size: 0.9rem;
+  line-height: 1.7;
+  max-width: 300px;
+}
+
+.footer-col h5 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 24px;
+  color: var(--white);
+}
+
+.footer-col ul { list-style: none; }
+.footer-col li { margin-bottom: 12px; }
+.footer-col a {
+  color: rgba(255,255,255,0.4);
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.3s;
+}
+
+.footer-col a:hover { color: var(--gold); }
+
+.footer-bottom {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-top: 40px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.footer-bottom p {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+}
+
+.social-links {
+  display: flex;
+  gap: 16px;
+}
+
+.social-links a {
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 50%;
+  color: rgba(255,255,255,0.5);
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.social-links a:hover {
+  border-color: var(--gold);
+  color: var(--gold);
+  transform: translateY(-3px);
+}
+
+/* ===== CART SIDEBAR ===== */
+.cart-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.6);
+  backdrop-filter: blur(4px);
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+}
+
+.cart-overlay.active { opacity: 1; visibility: visible; }
+
+.cart-sidebar {
+  position: fixed;
+  top: 0; right: 0;
+  width: 100%;
+  max-width: 480px;
+  height: 100vh;
+  background: var(--dark);
+  z-index: 2001;
+  transform: translateX(100%);
+  transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+  display: flex;
+  flex-direction: column;
+}
+
+.cart-sidebar.active { transform: translateX(0); }
+
+.cart-header {
+  padding: 32px;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.cart-header h3 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+}
+
+.cart-close {
+  background: none;
+  border: none;
+  color: var(--white);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.cart-close:hover { color: var(--gold); }
+
+.cart-items {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 32px;
+}
+
+.cart-item {
+  display: flex;
+  gap: 20px;
+  padding: 20px 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.cart-item-img {
+  width: 80px;
+  height: 100px;
+  border-radius: 8px;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.cart-item-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.cart-item-info { flex: 1; }
+
+.cart-item-info h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.cart-item-info .cart-item-meta {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.4);
+  margin-bottom: 8px;
+}
+
+.cart-item-price {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 700;
+  color: var(--gold);
+}
+
+.cart-item-remove {
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.3);
+  cursor: pointer;
+  font-size: 0.8rem;
+  transition: color 0.3s;
+}
+
+.cart-item-remove:hover { color: #ef4444; }
+
+.cart-empty {
+  text-align: center;
+  padding: 60px 20px;
+  color: rgba(255,255,255,0.4);
+}
+
+.cart-empty svg {
+  width: 64px;
+  height: 64px;
+  margin: 0 auto 20px;
+  stroke: rgba(255,255,255,0.2);
+}
+
+.cart-footer {
+  padding: 32px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+}
+
+.cart-subtotal {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.cart-subtotal span { color: rgba(255,255,255,0.5); }
+
+.cart-subtotal strong {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+
+.cart-shipping {
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.3);
+  margin-bottom: 24px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 18px;
+  background: var(--gold);
+  color: var(--black);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 0.95rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.checkout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(229,193,0,0.3);
+}
+
+/* ===== CHECKOUT MODAL ===== */
+.checkout-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.7);
+  backdrop-filter: blur(8px);
+  z-index: 3000;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.checkout-overlay.active { opacity: 1; visibility: visible; }
+
+.checkout-modal {
+  width: 100%;
+  max-width: 600px;
+  max-height: 90vh;
+  overflow-y: auto;
+  border-radius: 24px;
+  padding: 40px;
+  position: relative;
+}
+
+.checkout-modal h2 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.checkout-modal .subtitle {
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 32px;
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+.form-group label {
+  display: block;
+  font-size: 0.8rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select {
+  width: 100%;
+  padding: 14px 16px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 10px;
+  color: var(--white);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.95rem;
+  transition: all 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus {
+  outline: none;
+  border-color: var(--gold);
+  background: rgba(229,193,0,0.03);
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.payment-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+  margin-bottom: 24px;
+}
+
+.payment-option {
+  padding: 16px;
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s;
+  background: rgba(255,255,255,0.02);
+}
+
+.payment-option:hover { border-color: rgba(255,255,255,0.2); }
+.payment-option.active {
+  border-color: var(--gold);
+  background: rgba(229,193,0,0.05);
+}
+
+.payment-option svg {
+  width: 32px;
+  height: 32px;
+  margin: 0 auto 8px;
+}
+
+.payment-option span {
+  font-size: 0.75rem;
+  color: rgba(255,255,255,0.6);
+}
+
+.order-summary {
+  padding: 24px;
+  border-radius: 16px;
+  margin-bottom: 24px;
+}
+
+.order-summary h4 {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+.summary-row {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 12px;
+  font-size: 0.9rem;
+}
+
+.summary-row.total {
+  border-top: 1px solid rgba(255,255,255,0.1);
+  padding-top: 12px;
+  margin-top: 12px;
+}
+
+.summary-row.total strong {
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1.2rem;
+  color: var(--gold);
+}
+
+.place-order-btn {
+  width: 100%;
+  padding: 18px;
+  background: var(--gold);
+  color: var(--black);
+  font-family: 'Space Grotesk', sans-serif;
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.place-order-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 30px rgba(229,193,0,0.3);
+}
+
+.close-checkout {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: none;
+  border: none;
+  color: rgba(255,255,255,0.5);
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s;
+}
+
+.close-checkout:hover { color: var(--white); }
+
+/* ===== MOBILE MENU ===== */
+.mobile-menu-btn {
+  display: none;
+  background: none;
+  border: none;
+  color: var(--white);
+  cursor: pointer;
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 1024px) {
+  .hero-grid { grid-template-columns: 1fr; text-align: center; }
+  .hero-text p { margin: 0 auto 40px; }
+  .cta-group { justify-content: center; }
+  .hero-product { order: -1; }
+  .product-detail-grid { grid-template-columns: 1fr; }
+  .features-grid { grid-template-columns: 1fr; }
+  .lookbook-grid { grid-template-columns: 1fr 1fr; grid-template-rows: auto; }
+  .lookbook-item.large { grid-row: span 1; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 768px) {
+  .navbar { padding: 16px 20px; }
+  .nav-links { display: none; }
+  .mobile-menu-btn { display: block; }
+  .hero { padding: 100px 20px 60px; }
+  .product-section { padding: 60px 20px; }
+  .features-section { padding: 60px 20px; }
+  .lookbook-section { padding: 60px 20px; }
+  .about-section { padding: 80px 20px; }
+  .footer { padding: 60px 20px 30px; }
+  .footer-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-stats { gap: 30px; }
+  .form-row { grid-template-columns: 1fr; }
+  .payment-options { grid-template-columns: 1fr; }
+  .cart-sidebar { max-width: 100%; }
+}
+
+/* ===== SCROLLBAR ===== */
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--black); }
+::-webkit-scrollbar-thumb { background: var(--gray); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--gray-light); }
+
+/* ===== SCROLL REVEAL ===== */
+.reveal {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: all 0.8s ease-out;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
 </style>
 </head>
 <body>
 
-<header class="header" id="header">
-  <div class="container header-inner">
-    <span class="logo" data-view="inicio">GRIP <span class="logo-accent">&</span> GRIND</span>
-    <nav class="nav" id="mainNav">
-      <ul class="nav-list">
-        <li><button class="nav-link active" data-view="inicio">Inicio</button></li>
-        <li><button class="nav-link" data-view="catalogo">Catálogo</button></li>
-        <li><button class="nav-link" data-view="packs">Packs</button></li>
-        <li><button class="nav-link" data-view="contacto">Contacto</button></li>
-      </ul>
-    </nav>
-    <div class="header-actions">
-      <button class="cart-btn" id="cartBtn" aria-label="Abrir carrito">
-        🛒
-        <span class="cart-count" id="cartCount">0</span>
-      </button>
-      <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú">
-        <span></span><span></span><span></span>
-      </button>
-    </div>
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <a href="#" class="logo">ZETAL<span>CUBO</span></a>
+  <ul class="nav-links">
+    <li><a href="#inicio">Inicio</a></li>
+    <li><a href="#producto">Producto</a></li>
+    <li><a href="#lookbook">Lookbook</a></li>
+    <li><a href="#nosotros">Nosotros</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <div class="nav-right">
+    <button class="cart-btn" id="cartBtn" aria-label="Carrito">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <path d="M16 10a4 4 0 01-8 0"></path>
+      </svg>
+      <span class="cart-count" id="cartCount" style="display:none;">0</span>
+    </button>
+    <button class="mobile-menu-btn" id="mobileMenuBtn">
+      <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <line x1="3" y1="12" x2="21" y2="12"></line>
+        <line x1="3" y1="18" x2="21" y2="18"></line>
+      </svg>
+    </button>
   </div>
-</header>
+</nav>
 
+<!-- CART SIDEBAR -->
 <div class="cart-overlay" id="cartOverlay"></div>
-<aside class="cart-drawer" id="cartDrawer" aria-label="Carrito de compras">
-  <div class="cart-drawer-header">
-    <h3>Tu carrito</h3>
-    <button class="cart-close" id="cartClose" aria-label="Cerrar carrito">✕</button>
+<div class="cart-sidebar" id="cartSidebar">
+  <div class="cart-header">
+    <h3>Tu Carrito</h3>
+    <button class="cart-close" id="cartClose">&times;</button>
   </div>
   <div class="cart-items" id="cartItems">
-    <p class="cart-empty" id="cartEmpty">Tu carrito está vacío. Añade tu primer accesorio del catálogo.</p>
+    <div class="cart-empty" id="cartEmpty">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+        <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+        <line x1="3" y1="6" x2="21" y2="6"></line>
+        <path d="M16 10a4 4 0 01-8 0"></path>
+      </svg>
+      <p>Tu carrito esta vacio</p>
+    </div>
   </div>
-  <div class="cart-footer">
-    <div class="cart-total-row"><span>Total</span><span id="cartTotal">$0.00</span></div>
-    <button class="btn btn-primary btn-block">Finalizar compra</button>
+  <div class="cart-footer" id="cartFooter" style="display:none;">
+    <div class="cart-subtotal">
+      <span>Subtotal</span>
+      <strong id="cartTotal">EUR0.00</strong>
+    </div>
+    <p class="cart-shipping">Envio calculado en el checkout</p>
+    <button class="checkout-btn" id="checkoutBtn">Finalizar Compra</button>
   </div>
-</aside>
+</div>
 
-<main>
+<!-- CHECKOUT MODAL -->
+<div class="checkout-overlay" id="checkoutOverlay">
+  <div class="checkout-modal liquid-glass liquid-glass-strong">
+    <button class="close-checkout" id="closeCheckout">&times;</button>
+    <h2>Finalizar Compra</h2>
+    <p class="subtitle">Completa tus datos para completar el pedido</p>
 
-  <!-- ===== VISTA: INICIO ===== -->
-  <section class="view active" id="view-inicio">
-    <div class="hero">
-      <div class="hero-bg"></div>
-      <div class="container hero-inner">
-        <div class="hero-content">
-          <span class="hero-badge">🔥 Envíos en 24-48h a todo el país</span>
-          <h1 class="hero-title">Eleva tu fuerza.<br><span class="text-accent">Domina tu agarre.</span></h1>
-          <p class="hero-subtitle">Equipo de agarre y sujeción probado en el gimnasio, entregado en tu puerta sin esperas eternas. Straps, magnesio, muñequeras y más para levantar más peso, más veces.</p>
-          <div class="hero-actions">
-            <button class="btn btn-primary" data-view="catalogo">Ver catálogo</button>
-            <button class="btn btn-outline" data-view="packs">Ver packs con descuento</button>
-          </div>
+    <div class="order-summary liquid-glass">
+      <h4>Resumen del Pedido</h4>
+      <div id="orderSummaryContent"></div>
+    </div>
+
+    <h4 style="font-family:'Space Grotesk',sans-serif;font-size:1rem;margin-bottom:16px;">Metodo de Pago</h4>
+    <div class="payment-options">
+      <div class="payment-option active" data-method="card">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="1" y="4" width="22" height="16" rx="2" ry="2"></rect>
+          <line x1="1" y1="10" x2="23" y2="10"></line>
+        </svg>
+        <span>Tarjeta</span>
+      </div>
+      <div class="payment-option" data-method="paypal">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M7 11l5-5 5 5"></path>
+          <path d="M7 17l5-5 5 5"></path>
+        </svg>
+        <span>PayPal</span>
+      </div>
+      <div class="payment-option" data-method="bizum">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <rect x="2" y="5" width="20" height="14" rx="2" ry="2"></rect>
+          <line x1="2" y1="10" x2="22" y2="10"></line>
+        </svg>
+        <span>Bizum</span>
+      </div>
+    </div>
+
+    <form id="checkoutForm">
+      <div class="form-row">
+        <div class="form-group">
+          <label>Nombre</label>
+          <input type="text" placeholder="Tu nombre" required>
         </div>
-        <div class="hero-visual">
-          <div class="hero-plate">
-            <img src="https://images.unsplash.com/photo-1722925541321-f52d45b29c17?auto=format&fit=crop&w=800&h=800&q=75" alt="Equipo de gimnasio en blanco y negro" loading="eager">
-          </div>
+        <div class="form-group">
+          <label>Apellidos</label>
+          <input type="text" placeholder="Tu apellido" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Email</label>
+        <input type="email" placeholder="tu@email.com" required>
+      </div>
+      <div class="form-group">
+        <label>Direccion</label>
+        <input type="text" placeholder="Calle, numero, piso..." required>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label>Ciudad</label>
+          <input type="text" placeholder="Ciudad" required>
+        </div>
+        <div class="form-group">
+          <label>Codigo Postal</label>
+          <input type="text" placeholder="00000" required>
+        </div>
+      </div>
+      <div class="form-group">
+        <label>Telefono</label>
+        <input type="tel" placeholder="+34 600 000 000" required>
+      </div>
+      <button type="submit" class="place-order-btn">Confirmar Pedido</button>
+    </form>
+  </div>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="inicio">
+  <div class="hero-bg"></div>
+  <div class="hero-grid">
+    <div class="hero-text">
+      <p class="tagline animate-fade-in delay-1">Nueva Coleccion 2026</p>
+      <h1 class="animate-fade-in-up delay-2">
+        ZETAL<span class="gold">CUBO</span>
+      </h1>
+      <p class="animate-fade-in delay-3">
+        Streetwear que redefine los limites. Diseno audaz, materiales premium y una estetica 
+        que no pasa desapercibida. Fabricado para quienes marcan la diferencia.
+      </p>
+      <div class="cta-group animate-fade-in delay-4">
+        <a href="#producto" class="btn-primary">
+          Comprar Ahora
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+            <polyline points="12 5 19 12 12 19"></polyline>
+          </svg>
+        </a>
+        <a href="#lookbook" class="btn-secondary">Ver Lookbook</a>
+      </div>
+    </div>
+    <div class="hero-product animate-scale-in delay-5">
+      <div class="product-glass-container liquid-glass liquid-glass-strong">
+        <img src="/mnt/agents/upload/1000091804.jpg" alt="ZETALCUBO Pantalon" class="product-img animate-float">
+        <div class="product-badge">Nuevo</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-section">
+  <div class="marquee-track">
+    <span class="marquee-item gold">ZETALCUBO</span>
+    <span class="marquee-item">Streetwear Premium</span>
+    <span class="marquee-item gold">ZETALCUBO</span>
+    <span class="marquee-item">Edicion Limitada</span>
+    <span class="marquee-item gold">ZETALCUBO</span>
+    <span class="marquee-item">Diseno Atrevido</span>
+    <span class="marquee-item gold">ZETALCUBO</span>
+    <span class="marquee-item">Calidad Premium</span>
+    <span class="marquee-item gold">ZETALCUBO</span>
+    <span class="marquee-item">Streetwear Premium</span>
+    <span class="marquee-item gold">ZETALCUBO</span>
+    <span class="marquee-item">Edicion Limitada</span>
+    <span class="marquee-item gold">ZETALCUBO</span>
+    <span class="marquee-item">Diseno Atrevido</span>
+    <span class="marquee-item gold">ZETALCUBO</span>
+    <span class="marquee-item">Calidad Premium</span>
+  </div>
+</div>
+
+<!-- PRODUCT DETAIL -->
+<section class="product-section" id="producto">
+  <div class="section-header reveal">
+    <h2>THE CUBO PANT</h2>
+    <p>Edicion Limitada &mdash; Z3 Series</p>
+  </div>
+
+  <div class="product-detail-grid">
+    <div class="product-gallery reveal">
+      <div class="gallery-main liquid-glass">
+        <img src="/mnt/agents/upload/1000090293.png" alt="Vista Frontal" id="mainImage">
+      </div>
+      <div class="gallery-thumbs">
+        <div class="thumb active" data-img="/mnt/agents/upload/1000090293.png">
+          <img src="/mnt/agents/upload/1000090293.png" alt="Frontal">
+        </div>
+        <div class="thumb" data-img="/mnt/agents/upload/1000090294.png">
+          <img src="/mnt/agents/upload/1000090294.png" alt="Trasera">
+        </div>
+        <div class="thumb" data-img="/mnt/agents/upload/1000091804.jpg">
+          <img src="/mnt/agents/upload/1000091804.jpg" alt="Detalle">
         </div>
       </div>
     </div>
 
-    <div class="trust-bar">
-      <div class="container trust-grid">
-        <div class="trust-item"><span class="trust-icon">🚚</span><p>Envío en 24-48h</p></div>
-        <div class="trust-item"><span class="trust-icon">🔒</span><p>Pago cifrado y seguro</p></div>
-        <div class="trust-item"><span class="trust-icon">🔄</span><p>Devolución en 30 días</p></div>
-        <div class="trust-item"><span class="trust-icon">⭐</span><p>4.8/5 en +2.400 reseñas</p></div>
+    <div class="product-info reveal">
+      <h3>THE CUBO PANT</h3>
+      <p class="sku">REF: ZC-2026-BLK-001</p>
+      <div class="price"><span class="currency">EUR</span>149.00</div>
+      <p class="description">
+        Pantalon de corte amplio con detalles en contraste gris y parche amarillo Z2 en la parte trasera. 
+        Confeccionado en algodon premium 320gsm con acabado enzimatico para una suavidad unica. 
+        El logo Z3 bordado en la pierna frontal anade el toque distintivo ZETALCUBO.
+        <br><br>
+        Corte flare moderno, cintura ajustable y bolsillos funcionales. 
+        Disenado para el movimiento, construido para durar.
+      </p>
+
+      <div class="size-selector">
+        <label>Talla</label>
+        <div class="size-options">
+          <button class="size-btn" data-size="XS">XS</button>
+          <button class="size-btn" data-size="S">S</button>
+          <button class="size-btn active" data-size="M">M</button>
+          <button class="size-btn" data-size="L">L</button>
+          <button class="size-btn" data-size="XL">XL</button>
+          <button class="size-btn" data-size="XXL" disabled>XXL</button>
+        </div>
+      </div>
+
+      <button class="add-to-cart-btn" id="addToCart">
+        Anadir al Carrito &mdash; EUR149.00
+      </button>
+
+      <div class="payment-methods">
+        <span>Visa</span>
+        <span>Mastercard</span>
+        <span>PayPal</span>
+        <span>Bizum</span>
+        <span>Apple Pay</span>
+        <span>Google Pay</span>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="products">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag">Lo más pedido</span>
-          <h2 class="section-title">Empieza por aquí</h2>
-          <p class="section-subtitle">Los tres accesorios que nunca faltan en una bolsa de gimnasio.</p>
-        </div>
-        <div class="products-grid">
+<!-- FEATURES -->
+<section class="features-section">
+  <div class="section-header reveal">
+    <h2>Por Que ZETALCUBO</h2>
+    <p>Calidad sin compromisos</p>
+  </div>
+  <div class="features-grid">
+    <div class="feature-card liquid-glass reveal">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"></path>
+        </svg>
+      </div>
+      <h4>Materiales Premium</h4>
+      <p>Algodon organico 320gsm con acabados enzimaticos. Tacto superior y durabilidad garantizada.</p>
+    </div>
+    <div class="feature-card liquid-glass reveal">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+        </svg>
+      </div>
+      <h4>Edicion Limitada</h4>
+      <p>Cada pieza es numerada y producida en cantidades limitadas. Exclusividad real.</p>
+    </div>
+    <div class="feature-card liquid-glass reveal">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <circle cx="12" cy="12" r="10"></circle>
+          <polyline points="12 6 12 12 16 14"></polyline>
+        </svg>
+      </div>
+      <h4>Envio Express</h4>
+      <p>Entrega en 24-48h a toda Espana. Envio gratuito en pedidos superiores a EUR100.</p>
+    </div>
+  </div>
+</section>
 
-          <article class="product-card">
-            <span class="product-badge">🔥 Más vendido</span>
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1521805103424-d8f8430e8933?auto=format&fit=crop&w=800&h=600&q=75" alt="Straps de Agarre" loading="lazy">
-            </div>
-            <div class="product-info">
-              <h3 class="product-title">Straps de Agarre</h3>
-              <p class="product-rating"><span class="stars">★★★★★</span> 4.9 (215)</p>
-              <p class="product-price">$19.99</p>
-              <button class="add-to-cart" data-id="lifting-straps" data-name="Straps de Agarre" data-price="19.99" data-icon="https://images.unsplash.com/photo-1521805103424-d8f8430e8933?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-            </div>
-          </article>
+<!-- LOOKBOOK -->
+<section class="lookbook-section" id="lookbook">
+  <div class="section-header reveal">
+    <h2>LOOKBOOK</h2>
+    <p>El estilo ZETALCUBO en accion</p>
+  </div>
+  <div class="lookbook-grid">
+    <div class="lookbook-item large reveal">
+      <img src="/mnt/agents/upload/1000090293.png" alt="Look 1">
+      <div class="lookbook-overlay"><span>Vista Frontal</span></div>
+    </div>
+    <div class="lookbook-item reveal">
+      <img src="/mnt/agents/upload/1000090294.png" alt="Look 2">
+      <div class="lookbook-overlay"><span>Vista Trasera</span></div>
+    </div>
+    <div class="lookbook-item reveal">
+      <img src="/mnt/agents/upload/1000091804.jpg" alt="Look 3">
+      <div class="lookbook-overlay"><span>Detalle Logo</span></div>
+    </div>
+    <div class="lookbook-item reveal">
+      <img src="/mnt/agents/upload/1000090293.png" alt="Look 4">
+      <div class="lookbook-overlay"><span>Street Style</span></div>
+    </div>
+    <div class="lookbook-item reveal">
+      <img src="/mnt/agents/upload/1000090294.png" alt="Look 5">
+      <div class="lookbook-overlay"><span>Full Detail</span></div>
+    </div>
+  </div>
+</section>
 
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1676109829011-a9f0f3e40f00?auto=format&fit=crop&w=800&h=600&q=75" alt="Muñequeras de Alta Resistencia" loading="lazy">
-            </div>
-            <div class="product-info">
-              <h3 class="product-title">Muñequeras de Alta Resistencia</h3>
-              <p class="product-rating"><span class="stars">★★★★★</span> 4.8 (167)</p>
-              <p class="product-price">$22.99</p>
-              <button class="add-to-cart" data-id="wrist-wraps" data-name="Muñequeras de Alta Resistencia" data-price="22.99" data-icon="https://images.unsplash.com/photo-1676109829011-a9f0f3e40f00?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1728486144678-95cb7c5f7463?auto=format&fit=crop&w=800&h=600&q=75" alt="Magnesio Líquido" loading="lazy">
-            </div>
-            <div class="product-info">
-              <h3 class="product-title">Magnesio Líquido</h3>
-              <p class="product-rating"><span class="stars">★★★★★</span> 4.6 (143)</p>
-              <p class="product-price">$14.99</p>
-              <button class="add-to-cart" data-id="liquid-chalk" data-name="Magnesio Líquido" data-price="14.99" data-icon="https://images.unsplash.com/photo-1728486144678-95cb7c5f7463?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-            </div>
-          </article>
-
-        </div>
-        <div class="view-all-wrap">
-          <button class="btn btn-outline" data-view="catalogo">Ver catálogo completo</button>
-        </div>
+<!-- ABOUT -->
+<section class="about-section" id="nosotros">
+  <div class="about-bg-text">ZETALCUBO</div>
+  <div class="about-content reveal">
+    <h2>Nuestra Esencia</h2>
+    <p>
+      ZETALCUBO nace de la interseccion entre el streetwear urbano y el diseno de vanguardia. 
+      Cada pieza es una declaracion de intenciones: ropa que no sigue tendencias, las crea.
+    </p>
+    <p>
+      Inspirados en la geometria, la arquitectura brutalista y la cultura skate, 
+      disenamos prendas para quienes entienden que la moda es un lenguaje.
+    </p>
+    <div class="about-stats">
+      <div class="stat-item">
+        <h3>2026</h3>
+        <p>Ano de lanzamiento</p>
+      </div>
+      <div class="stat-item">
+        <h3>001</h3>
+        <p>Primera coleccion</p>
+      </div>
+      <div class="stat-item">
+        <h3>100%</h3>
+        <p>Hecho en Espana</p>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="packs">
-      <div class="container">
-        <div class="section-header">
-          <span class="section-tag alt">Ahorra en combo</span>
-          <h2 class="section-title">Pack Fuerza</h2>
-          <p class="section-subtitle">Nuestro combo más vendido, con un 20% de descuento.</p>
-        </div>
-        <div class="packs-grid single-pack">
-          <div class="pack-card featured">
-            <div class="pack-image">
-              <span class="pack-discount">-20%</span>
-              <img src="https://images.unsplash.com/photo-1734630341082-0fec0e10126c?auto=format&fit=crop&w=800&h=450&q=75" alt="Pack Fuerza">
-            </div>
-            <h3 class="pack-title">Pack Fuerza</h3>
-            <ul class="pack-items">
-              <li>Straps de Agarre</li>
-              <li>Muñequeras de Alta Resistencia</li>
-              <li>Magnesio Líquido</li>
-            </ul>
-            <div class="pack-price-row">
-              <span class="pack-price-old">$57.97</span>
-              <span class="pack-price-new">$46.38</span>
-            </div>
-            <button class="btn btn-primary btn-block add-to-cart" data-id="pack-fuerza" data-name="Pack Fuerza" data-price="46.38" data-icon="https://images.unsplash.com/photo-1734630341082-0fec0e10126c?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-          </div>
-        </div>
-        <div class="view-all-wrap">
-          <button class="btn btn-outline" data-view="packs">Ver todos los packs</button>
-        </div>
-      </div>
+<!-- FOOTER -->
+<footer class="footer" id="contacto">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <a href="#" class="logo">ZETAL<span>CUBO</span></a>
+      <p>Streetwear premium disenado para quienes marcan la diferencia. 
+         Calidad, exclusividad y actitud en cada pieza.</p>
     </div>
-  </section>
-
-  <!-- ===== VISTA: CATÁLOGO ===== -->
-  <section class="view" id="view-catalogo">
-    <div class="products">
-      <div class="container">
-        <span class="back-link" data-view="inicio">← Inicio</span>
-        <div class="section-header">
-          <span class="section-tag">Catálogo completo</span>
-          <h2 class="section-title">Equipo que no te falla</h2>
-          <p class="section-subtitle">Diez piezas esenciales, seleccionadas para quienes entrenan en serio.</p>
-        </div>
-        <div class="products-grid">
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1592494624782-b5bee232f156?auto=format&fit=crop&w=800&h=600&q=75" alt="Tobilleras para Poleas" loading="lazy">
-            </div>
-            <div class="product-info">
-              <h3 class="product-title">Tobilleras para Poleas</h3>
-              <p class="product-rating"><span class="stars">★★★★★</span> 4.7 (98)</p>
-              <p class="product-price">$24.99</p>
-              <button class="add-to-cart" data-id="ankle-straps" data-name="Tobilleras para Poleas" data-price="24.99" data-icon="https://images.unsplash.com/photo-1592494624782-b5bee232f156?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <span class="product-badge">🔥 Más vendido</span>
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1521805103424-d8f8430e8933?auto=format&fit=crop&w=800&h=600&q=75" alt="Straps de Agarre" loading="lazy">
-            </div>
-            <div class="product-info">
-              <h3 class="product-title">Straps de Agarre</h3>
-              <p class="product-rating"><span class="stars">★★★★★</span> 4.9 (215)</p>
-              <p class="product-price">$19.99</p>
-              <button class="add-to-cart" data-id="lifting-straps" data-name="Straps de Agarre" data-price="19.99" data-icon="https://images.unsplash.com/photo-1521805103424-d8f8430e8933?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1728486144678-95cb7c5f7463?auto=format&fit=crop&w=800&h=600&q=75" alt="Magnesio Líquido" loading="lazy">
-            </div>
-            <div class="product-info">
-              <h3 class="product-title">Magnesio Líquido</h3>
-              <p class="product-rating"><span class="stars">★★★★★</span> 4.6 (143)</p>
-              <p class="product-price">$14.99</p>
-              <button class="add-to-cart" data-id="liquid-chalk" data-name="Magnesio Líquido" data-price="14.99" data-icon="https://images.unsplash.com/photo-1728486144678-95cb7c5f7463?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1676109829011-a9f0f3e40f00?auto=format&fit=crop&w=800&h=600&q=75" alt="Muñequeras de Alta Resistencia" loading="lazy">
-            </div>
-            <div class="product-info">
-              <h3 class="product-title">Muñequeras de Alta Resistencia</h3>
-              <p class="product-rating"><span class="stars">★★★★★</span> 4.8 (167)</p>
-              <p class="product-price">$22.99</p>
-              <button class="add-to-cart" data-id="wrist-wraps" data-name="Muñequeras de Alta Resistencia" data-price="22.99" data-icon="https://images.unsplash.com/photo-1676109829011-a9f0f3e40f00?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1653927956711-f2222a45e040?auto=format&fit=crop&w=800&h=600&q=75" alt="Hand Grips Ajustables" loading="lazy">
-            </div>
-            <div class="product-info">
-              <h3 class="product-title">Hand Grips Ajustables</h3>
-              <p class="product-rating"><span class="stars">★★★★☆</span> 4.5 (76)</p>
-              <p class="product-price">$17.99</p>
-              <button class="add-to-cart" data-id="hand-grips" data-name="Hand Grips Ajustables" data-price="17.99" data-icon="https://images.unsplash.com/photo-1653927956711-f2222a45e040?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1603077492340-e6e62b2a688b?auto=format&fit=crop&w=800&h=600&q=75" alt="Cinturón para Lastre" loading="lazy">
-            </div>
-            <div class="product-info">
-              <h3 class="product-title">Cinturón para Lastre</h3>
-              <p class="product-rating"><span class="stars">★★★★★</span> 4.9 (54)</p>
-              <p class="product-price">$34.99</p>
-              <button class="add-to-cart" data-id="dip-belt" data-name="Cinturón para Lastre" data-price="34.99" data-icon="https://images.unsplash.com/photo-1603077492340-e6e62b2a688b?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1767404890803-228d5390fcd4?auto=format&fit=crop&w=800&h=600&q=75" alt="Gomas para Dominadas" loading="lazy">
-            </div>
-            <div class="product-info">
-              <h3 class="product-title">Gomas para Dominadas</h3>
-              <p class="product-rating"><span class="stars">★★★★★</span> 4.7 (189)</p>
-              <p class="product-price">$16.99</p>
-              <button class="add-to-cart" data-id="resistance-bands" data-name="Gomas para Dominadas" data-price="16.99" data-icon="https://images.unsplash.com/photo-1767404890803-228d5390fcd4?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=800&h=600&q=75" alt="Collares de Bloqueo Rápido" loading="lazy">
-            </div>
-            <div class="product-info">
-              <h3 class="product-title">Collares de Bloqueo Rápido</h3>
-              <p class="product-rating"><span class="stars">★★★★★</span> 4.8 (112)</p>
-              <p class="product-price">$12.99</p>
-              <button class="add-to-cart" data-id="barbell-collars" data-name="Collares de Bloqueo Rápido" data-price="12.99" data-icon="https://images.unsplash.com/photo-1576678927484-cc907957088c?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1672344048213-76b6e77304bd?auto=format&fit=crop&w=800&h=600&q=75" alt="Almohadilla Protectora de Barra" loading="lazy">
-            </div>
-            <div class="product-info">
-              <h3 class="product-title">Almohadilla Protectora de Barra</h3>
-              <p class="product-rating"><span class="stars">★★★★☆</span> 4.6 (61)</p>
-              <p class="product-price">$27.99</p>
-              <button class="add-to-cart" data-id="barbell-pad" data-name="Almohadilla Protectora de Barra" data-price="27.99" data-icon="https://images.unsplash.com/photo-1672344048213-76b6e77304bd?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-            </div>
-          </article>
-
-          <article class="product-card">
-            <span class="product-badge">🆕 Nuevo</span>
-            <div class="product-image">
-              <img src="https://images.unsplash.com/photo-1448582649076-3981753123b5?auto=format&fit=crop&w=800&h=600&q=75" alt="Bolsa de Transporte de Malla" loading="lazy">
-            </div>
-            <div class="product-info">
-              <h3 class="product-title">Bolsa de Transporte de Malla</h3>
-              <p class="product-rating"><span class="stars">★★★★☆</span> 4.4 (39)</p>
-              <p class="product-price">$15.99</p>
-              <button class="add-to-cart" data-id="mesh-bag" data-name="Bolsa de Transporte de Malla" data-price="15.99" data-icon="https://images.unsplash.com/photo-1448582649076-3981753123b5?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-            </div>
-          </article>
-
-        </div>
-        <div class="view-all-wrap">
-          <button class="btn btn-outline" data-view="packs">¿Prefieres ahorrar? Ver packs con descuento</button>
-        </div>
-      </div>
+    <div class="footer-col">
+      <h5>Tienda</h5>
+      <ul>
+        <li><a href="#producto">The Cubo Pant</a></li>
+        <li><a href="#">Proximos lanzamientos</a></li>
+        <li><a href="#">Colecciones</a></li>
+      </ul>
     </div>
-  </section>
-
-  <!-- ===== VISTA: PACKS ===== -->
-  <section class="view" id="view-packs">
-    <div class="packs">
-      <div class="container">
-        <span class="back-link" data-view="inicio">← Inicio</span>
-        <div class="section-header">
-          <span class="section-tag alt">Ahorra en combo</span>
-          <h2 class="section-title">Packs recomendados</h2>
-          <p class="section-subtitle">Combina tu equipo y ahorra hasta un 20% frente a comprarlo por separado.</p>
-        </div>
-        <div class="packs-grid">
-
-          <div class="pack-card featured">
-            <div class="pack-image">
-              <span class="pack-discount">-20%</span>
-              <img src="https://images.unsplash.com/photo-1734630341082-0fec0e10126c?auto=format&fit=crop&w=800&h=450&q=75" alt="Pack Fuerza">
-            </div>
-            <h3 class="pack-title">Pack Fuerza</h3>
-            <ul class="pack-items">
-              <li>Straps de Agarre</li>
-              <li>Muñequeras de Alta Resistencia</li>
-              <li>Magnesio Líquido</li>
-            </ul>
-            <div class="pack-price-row">
-              <span class="pack-price-old">$57.97</span>
-              <span class="pack-price-new">$46.38</span>
-            </div>
-            <button class="btn btn-primary btn-block add-to-cart" data-id="pack-fuerza" data-name="Pack Fuerza" data-price="46.38" data-icon="https://images.unsplash.com/photo-1734630341082-0fec0e10126c?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-          </div>
-
-          <div class="pack-card">
-            <div class="pack-image">
-              <span class="pack-discount">-20%</span>
-              <img src="https://images.unsplash.com/photo-1767404890803-228d5390fcd4?auto=format&fit=crop&w=800&h=450&q=75" alt="Pack Dominadas">
-            </div>
-            <h3 class="pack-title">Pack Dominadas</h3>
-            <ul class="pack-items">
-              <li>Gomas para Dominadas</li>
-              <li>Collares de Bloqueo Rápido</li>
-              <li>Cinturón para Lastre</li>
-            </ul>
-            <div class="pack-price-row">
-              <span class="pack-price-old">$64.97</span>
-              <span class="pack-price-new">$51.98</span>
-            </div>
-            <button class="btn btn-primary btn-block add-to-cart" data-id="pack-dominadas" data-name="Pack Dominadas" data-price="51.98" data-icon="https://images.unsplash.com/photo-1767404890803-228d5390fcd4?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-          </div>
-
-          <div class="pack-card">
-            <div class="pack-image">
-              <span class="pack-discount">-20%</span>
-              <img src="https://images.unsplash.com/photo-1590150392093-a552544eed09?auto=format&fit=crop&w=800&h=450&q=75" alt="Pack Grip Total">
-            </div>
-            <h3 class="pack-title">Pack Grip Total</h3>
-            <ul class="pack-items">
-              <li>Hand Grips Ajustables</li>
-              <li>Straps de Agarre</li>
-              <li>Tobilleras para Poleas</li>
-            </ul>
-            <div class="pack-price-row">
-              <span class="pack-price-old">$62.97</span>
-              <span class="pack-price-new">$50.38</span>
-            </div>
-            <button class="btn btn-primary btn-block add-to-cart" data-id="pack-grip-total" data-name="Pack Grip Total" data-price="50.38" data-icon="https://images.unsplash.com/photo-1590150392093-a552544eed09?auto=format&fit=crop&w=100&h=100&q=60">Añadir al carrito</button>
-          </div>
-
-        </div>
-        <div class="view-all-wrap">
-          <button class="btn btn-outline" data-view="catalogo">Ver productos individuales</button>
-        </div>
-      </div>
+    <div class="footer-col">
+      <h5>Ayuda</h5>
+      <ul>
+        <li><a href="#">Envios y devoluciones</a></li>
+        <li><a href="#">Tallas</a></li>
+        <li><a href="#">Contacto</a></li>
+        <li><a href="#">FAQ</a></li>
+      </ul>
     </div>
-  </section>
-
-  <!-- ===== VISTA: CONTACTO ===== -->
-  <section class="view" id="view-contacto">
-    <div class="contact-page">
-      <div class="container">
-        <span class="back-link" data-view="inicio">← Inicio</span>
-        <div class="section-header">
-          <span class="section-tag">Contacto</span>
-          <h2 class="section-title">¿Dudas antes de tu pedido?</h2>
-          <p class="section-subtitle">Escríbenos y te respondemos en menos de 24h laborables.</p>
-        </div>
-
-        <div class="contact-grid">
-          <div class="contact-info-list">
-            <div class="contact-info-card">
-              <span class="contact-info-icon">📧</span>
-              <div><h4>Email</h4><p>hola@gripandgrind.com</p></div>
-            </div>
-            <div class="contact-info-card">
-              <span class="contact-info-icon">💬</span>
-              <div><h4>WhatsApp</h4><p>Respuesta rápida para pedidos urgentes</p></div>
-            </div>
-            <div class="contact-info-card">
-              <span class="contact-info-icon">🕒</span>
-              <div><h4>Horario de atención</h4><p>Lunes a viernes, 9:00–18:00</p></div>
-            </div>
-          </div>
-
-          <div class="contact-form-card">
-            <h3>Únete a la newsletter</h3>
-            <p class="section-subtitle">Recibe avisos de restocks, productos nuevos y descuentos exclusivos.</p>
-            <form class="newsletter-form" id="newsletterForm">
-              <input type="email" placeholder="tu@email.com" required aria-label="Correo electrónico">
-              <button type="submit" class="btn btn-primary">Suscribirme</button>
-            </form>
-            <p class="newsletter-note">Cero spam. Puedes darte de baja cuando quieras.</p>
-          </div>
-        </div>
-
-        <div class="faq-section">
-          <div class="section-header">
-            <span class="section-tag alt">Preguntas frecuentes</span>
-            <h2 class="section-title">Antes de escribirnos</h2>
-          </div>
-          <div class="faq-list">
-            <details class="faq-item">
-              <summary>¿Cuánto tarda el envío?</summary>
-              <p>Los pedidos salen en 24-48h laborables y recibirás un código de seguimiento en cuanto se despachen.</p>
-            </details>
-            <details class="faq-item">
-              <summary>¿Puedo devolver un producto?</summary>
-              <p>Sí, dispones de 30 días desde la recepción para devolver cualquier producto sin usar.</p>
-            </details>
-            <details class="faq-item">
-              <summary>¿Qué métodos de pago aceptáis?</summary>
-              <p>Visa, Mastercard, PayPal y Apple Pay, todos con pago cifrado de extremo a extremo.</p>
-            </details>
-          </div>
-        </div>
-      </div>
+    <div class="footer-col">
+      <h5>Legal</h5>
+      <ul>
+        <li><a href="#">Terminos y condiciones</a></li>
+        <li><a href="#">Politica de privacidad</a></li>
+        <li><a href="#">Cookies</a></li>
+      </ul>
     </div>
-  </section>
-
-</main>
-
-<footer class="footer">
-  <div class="container">
-    <div class="footer-grid">
-      <div class="footer-brand">
-        <span class="logo" data-view="inicio">GRIP <span class="logo-accent">&</span> GRIND</span>
-        <p>Accesorios fitness de alto rendimiento para quienes no se conforman con el peso de ayer.</p>
-        <div class="social-links">
-          <a href="#" aria-label="Instagram">📷</a>
-          <a href="#" aria-label="TikTok">🎵</a>
-          <a href="#" aria-label="Facebook">📘</a>
-        </div>
-      </div>
-      <div class="footer-col">
-        <h4>Legal</h4>
-        <ul>
-          <li><a href="#">Términos y condiciones</a></li>
-          <li><a href="#">Política de privacidad</a></li>
-          <li><a href="#">Política de envíos</a></li>
-          <li><a href="#">Devoluciones</a></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Tienda</h4>
-        <ul>
-          <li><button data-view="catalogo">Catálogo</button></li>
-          <li><button data-view="packs">Packs</button></li>
-          <li><button data-view="contacto">Contacto</button></li>
-        </ul>
-      </div>
-      <div class="footer-col">
-        <h4>Métodos de pago</h4>
-        <div class="payment-methods">
-          <span class="payment-badge">VISA</span>
-          <span class="payment-badge">MASTERCARD</span>
-          <span class="payment-badge">PAYPAL</span>
-          <span class="payment-badge">APPLE PAY</span>
-        </div>
-      </div>
-    </div>
-    <div class="footer-bottom">
-      <p>© 2026 Grip & Grind. Todos los derechos reservados.</p>
+  </div>
+  <div class="footer-bottom">
+    <p>&copy; 2026 ZETALCUBO. Todos los derechos reservados.</p>
+    <div class="social-links">
+      <a href="#" aria-label="Instagram">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+          <path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"></path>
+          <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+        </svg>
+      </a>
+      <a href="#" aria-label="TikTok">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M9 12a4 4 0 104 4V4a5 5 0 005 5"></path>
+        </svg>
+      </a>
+      <a href="#" aria-label="Twitter">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2c9 5 20 0 20-11.5a4.5 4.5 0 00-.08-.83A7.72 7.72 0 0023 3z"></path>
+        </svg>
+      </a>
     </div>
   </div>
 </footer>
 
-<div class="toast" id="toast">
-  <span>✅</span>
-  <span id="toastMessage">¡Producto añadido al carrito!</span>
-</div>
-
 <script>
-(function () {
-  "use strict";
+// ===== NAVBAR SCROLL =====
+const navbar = document.getElementById('navbar');
+window.addEventListener('scroll', () => {
+  if (window.scrollY > 50) navbar.classList.add('scrolled');
+  else navbar.classList.remove('scrolled');
+});
 
-  var cart = {};
-  var toastTimeout = null;
-
-  var header = document.getElementById('header');
-  var cartCountEl = document.getElementById('cartCount');
-  var cartItemsEl = document.getElementById('cartItems');
-  var cartEmptyEl = document.getElementById('cartEmpty');
-  var cartTotalEl = document.getElementById('cartTotal');
-  var cartDrawer = document.getElementById('cartDrawer');
-  var cartOverlay = document.getElementById('cartOverlay');
-  var cartBtn = document.getElementById('cartBtn');
-  var cartClose = document.getElementById('cartClose');
-  var menuToggle = document.getElementById('menuToggle');
-  var mainNav = document.getElementById('mainNav');
-  var toast = document.getElementById('toast');
-  var toastMessage = document.getElementById('toastMessage');
-  var views = document.querySelectorAll('.view');
-
-  /* ---------- Sticky header shadow ---------- */
-  window.addEventListener('scroll', function () {
-    header.classList.toggle('scrolled', window.scrollY > 8);
-  });
-
-  /* ---------- View switching (button navigation, no scrolling between sections) ---------- */
-  function showView(name) {
-    if (!document.getElementById('view-' + name)) name = 'inicio';
-    views.forEach(function (v) {
-      v.classList.toggle('active', v.id === 'view-' + name);
-    });
-    document.querySelectorAll('.nav-link').forEach(function (link) {
-      link.classList.toggle('active', link.dataset.view === name);
-    });
-    window.scrollTo(0, 0);
-  }
-
-  document.addEventListener('click', function (e) {
-    var trigger = e.target.closest('[data-view]');
-    if (!trigger || trigger.classList.contains('add-to-cart')) return;
-    e.preventDefault();
-    var name = trigger.dataset.view;
-    if (history.pushState) { history.pushState(null, '', '#' + name); }
-    showView(name);
-    if (mainNav.classList.contains('open')) {
-      mainNav.classList.remove('open');
-      menuToggle.classList.remove('open');
+// ===== SCROLL REVEAL =====
+const revealElements = document.querySelectorAll('.reveal');
+const revealObserver = new IntersectionObserver((entries) => {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.classList.add('active');
     }
   });
+}, { threshold: 0.1 });
 
-  window.addEventListener('popstate', function () {
-    var name = (location.hash || '#inicio').replace('#', '') || 'inicio';
-    showView(name);
+revealElements.forEach(el => revealObserver.observe(el));
+
+// ===== CART FUNCTIONALITY =====
+let cart = [];
+const product = {
+  id: 'ZC-2026-BLK-001',
+  name: 'THE CUBO PANT',
+  price: 149.00,
+  image: '/mnt/agents/upload/1000090293.png',
+  sizes: ['XS','S','M','L','XL']
+};
+let selectedSize = 'M';
+
+const cartBtn = document.getElementById('cartBtn');
+const cartOverlay = document.getElementById('cartOverlay');
+const cartSidebar = document.getElementById('cartSidebar');
+const cartClose = document.getElementById('cartClose');
+const cartItems = document.getElementById('cartItems');
+const cartEmpty = document.getElementById('cartEmpty');
+const cartFooter = document.getElementById('cartFooter');
+const cartCount = document.getElementById('cartCount');
+const cartTotal = document.getElementById('cartTotal');
+const checkoutBtn = document.getElementById('checkoutBtn');
+
+function openCart() {
+  cartOverlay.classList.add('active');
+  cartSidebar.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCart() {
+  cartOverlay.classList.remove('active');
+  cartSidebar.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+cartBtn.addEventListener('click', openCart);
+cartOverlay.addEventListener('click', closeCart);
+cartClose.addEventListener('click', closeCart);
+
+function updateCart() {
+  if (cart.length === 0) {
+    cartEmpty.style.display = 'block';
+    cartFooter.style.display = 'none';
+    cartCount.style.display = 'none';
+    cartItems.innerHTML = `
+      <div class="cart-empty" id="cartEmpty">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+          <path d="M6 2L3 6v14a2 2 0 002 2h14a2 2 0 002-2V6l-3-4z"></path>
+          <line x1="3" y1="6" x2="21" y2="6"></line>
+          <path d="M16 10a4 4 0 01-8 0"></path>
+        </svg>
+        <p>Tu carrito esta vacio</p>
+      </div>`;
+    return;
+  }
+
+  cartEmpty.style.display = 'none';
+  cartFooter.style.display = 'block';
+  cartCount.style.display = 'flex';
+  cartCount.textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+
+  let html = '';
+  let total = 0;
+  cart.forEach((item, index) => {
+    total += item.price * item.qty;
+    html += `
+      <div class="cart-item">
+        <div class="cart-item-img">
+          <img src="${item.image}" alt="${item.name}">
+        </div>
+        <div class="cart-item-info">
+          <h4>${item.name}</h4>
+          <p class="cart-item-meta">Talla: ${item.size} | Cant: ${item.qty}</p>
+          <p class="cart-item-price">EUR${(item.price * item.qty).toFixed(2)}</p>
+        </div>
+        <button class="cart-item-remove" data-index="${index}">Eliminar</button>
+      </div>`;
   });
+  cartItems.innerHTML = html;
+  cartTotal.textContent = 'EUR' + total.toFixed(2);
 
-  var initialView = (location.hash || '#inicio').replace('#', '') || 'inicio';
-  showView(initialView);
-
-  /* ---------- Mobile menu ---------- */
-  menuToggle.addEventListener('click', function () {
-    menuToggle.classList.toggle('open');
-    mainNav.classList.toggle('open');
-  });
-
-  /* ---------- Toast ---------- */
-  function showToast(message) {
-    toastMessage.textContent = message;
-    toast.classList.add('show');
-    clearTimeout(toastTimeout);
-    toastTimeout = setTimeout(function () {
-      toast.classList.remove('show');
-    }, 2600);
-  }
-
-  /* ---------- Cart ---------- */
-  function formatPrice(n) { return '$' + n.toFixed(2); }
-
-  function addToCart(id, name, price, icon) {
-    if (cart[id]) {
-      cart[id].qty += 1;
-    } else {
-      cart[id] = { name: name, price: price, icon: icon, qty: 1 };
-    }
-    renderCart();
-  }
-
-  function changeQty(id, delta) {
-    if (!cart[id]) return;
-    cart[id].qty += delta;
-    if (cart[id].qty <= 0) delete cart[id];
-    renderCart();
-  }
-
-  function removeItem(id) {
-    delete cart[id];
-    renderCart();
-  }
-
-  function renderCart() {
-    var ids = Object.keys(cart);
-    var totalQty = 0;
-    var totalPrice = 0;
-
-    cartItemsEl.innerHTML = '';
-
-    if (ids.length === 0) {
-      cartItemsEl.appendChild(cartEmptyEl);
-    } else {
-      ids.forEach(function (id) {
-        var item = cart[id];
-        totalQty += item.qty;
-        totalPrice += item.qty * item.price;
-
-        var row = document.createElement('div');
-        row.className = 'cart-item';
-        row.innerHTML =
-          '<div class="cart-item-icon"><img src="' + item.icon + '" alt=""></div>' +
-          '<div class="cart-item-info">' +
-            '<div class="cart-item-name">' + item.name + '</div>' +
-            '<div class="cart-item-price">' + formatPrice(item.price) + '</div>' +
-            '<div class="cart-item-qty">' +
-              '<button class="qty-btn" data-action="minus" data-id="' + id + '" aria-label="Restar unidad">−</button>' +
-              '<span>' + item.qty + '</span>' +
-              '<button class="qty-btn" data-action="plus" data-id="' + id + '" aria-label="Sumar unidad">+</button>' +
-              '<button class="cart-item-remove" data-action="remove" data-id="' + id + '" aria-label="Eliminar producto">🗑️</button>' +
-            '</div>' +
-          '</div>';
-        cartItemsEl.appendChild(row);
-      });
-    }
-
-    cartCountEl.textContent = totalQty;
-    cartTotalEl.textContent = formatPrice(totalPrice);
-  }
-
-  cartItemsEl.addEventListener('click', function (e) {
-    var btn = e.target.closest('button[data-action]');
-    if (!btn) return;
-    var id = btn.dataset.id;
-    var action = btn.dataset.action;
-    if (action === 'plus') changeQty(id, 1);
-    if (action === 'minus') changeQty(id, -1);
-    if (action === 'remove') removeItem(id);
-  });
-
-  /* ---------- Add to cart buttons (products + packs) ---------- */
-  document.querySelectorAll('.add-to-cart').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var id = btn.dataset.id;
-      var name = btn.dataset.name;
-      var price = parseFloat(btn.dataset.price);
-      var icon = btn.dataset.icon;
-
-      addToCart(id, name, price, icon);
-      showToast(name + ' añadido al carrito ✅');
-
-      var originalText = btn.textContent;
-      btn.classList.add('added');
-      btn.textContent = 'Añadido ✓';
-      setTimeout(function () {
-        btn.classList.remove('added');
-        btn.textContent = originalText;
-      }, 1100);
+  document.querySelectorAll('.cart-item-remove').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      const idx = parseInt(e.target.dataset.index);
+      cart.splice(idx, 1);
+      updateCart();
     });
   });
+}
 
-  /* ---------- Cart drawer open/close ---------- */
-  function openCart() {
-    cartDrawer.classList.add('open');
-    cartOverlay.classList.add('active');
-  }
-  function closeCart() {
-    cartDrawer.classList.remove('open');
-    cartOverlay.classList.remove('active');
-  }
-  cartBtn.addEventListener('click', openCart);
-  cartClose.addEventListener('click', closeCart);
-  cartOverlay.addEventListener('click', closeCart);
-
-  /* ---------- Newsletter form ---------- */
-  var newsletterForm = document.getElementById('newsletterForm');
-  newsletterForm.addEventListener('submit', function (e) {
-    e.preventDefault();
-    showToast('¡Gracias por suscribirte! 📬');
-    newsletterForm.reset();
+// ===== SIZE SELECTOR =====
+document.querySelectorAll('.size-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    if (btn.disabled) return;
+    document.querySelectorAll('.size-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    selectedSize = btn.dataset.size;
   });
+});
 
-  renderCart();
-})();
+// ===== ADD TO CART =====
+const addToCartBtn = document.getElementById('addToCart');
+addToCartBtn.addEventListener('click', () => {
+  const existing = cart.find(item => item.size === selectedSize);
+  if (existing) {
+    existing.qty++;
+  } else {
+    cart.push({
+      id: product.id,
+      name: product.name,
+      price: product.price,
+      image: product.image,
+      size: selectedSize,
+      qty: 1
+    });
+  }
+  updateCart();
+  addToCartBtn.textContent = 'Anadido al Carrito';
+  addToCartBtn.classList.add('added');
+  setTimeout(() => {
+    addToCartBtn.textContent = 'Anadir al Carrito — EUR149.00';
+    addToCartBtn.classList.remove('added');
+  }, 2000);
+  openCart();
+});
+
+// ===== GALLERY THUMBS =====
+document.querySelectorAll('.thumb').forEach(thumb => {
+  thumb.addEventListener('click', () => {
+    document.querySelectorAll('.thumb').forEach(t => t.classList.remove('active'));
+    thumb.classList.add('active');
+    document.getElementById('mainImage').src = thumb.dataset.img;
+  });
+});
+
+// ===== CHECKOUT =====
+const checkoutOverlay = document.getElementById('checkoutOverlay');
+const closeCheckout = document.getElementById('closeCheckout');
+const checkoutForm = document.getElementById('checkoutForm');
+const orderSummaryContent = document.getElementById('orderSummaryContent');
+
+function openCheckout() {
+  if (cart.length === 0) return;
+  closeCart();
+  let total = cart.reduce((sum, item) => sum + item.price * item.qty, 0);
+  let html = '';
+  cart.forEach(item => {
+    html += `<div class="summary-row"><span>${item.name} (x${item.qty})</span><span>EUR${(item.price * item.qty).toFixed(2)}</span></div>`;
+  });
+  html += `<div class="summary-row"><span>Envio</span><span>Gratis</span></div>`;
+  html += `<div class="summary-row total"><span>Total</span><strong>EUR${total.toFixed(2)}</strong></div>`;
+  orderSummaryContent.innerHTML = html;
+  checkoutOverlay.classList.add('active');
+  document.body.style.overflow = 'hidden';
+}
+
+function closeCheckoutFn() {
+  checkoutOverlay.classList.remove('active');
+  document.body.style.overflow = '';
+}
+
+checkoutBtn.addEventListener('click', openCheckout);
+closeCheckout.addEventListener('click', closeCheckoutFn);
+checkoutOverlay.addEventListener('click', (e) => {
+  if (e.target === checkoutOverlay) closeCheckoutFn();
+});
+
+// Payment options
+document.querySelectorAll('.payment-option').forEach(opt => {
+  opt.addEventListener('click', () => {
+    document.querySelectorAll('.payment-option').forEach(o => o.classList.remove('active'));
+    opt.classList.add('active');
+  });
+});
+
+// Form submit
+checkoutForm.addEventListener('submit', (e) => {
+  e.preventDefault();
+  const btn = checkoutForm.querySelector('.place-order-btn');
+  btn.textContent = 'Procesando...';
+  btn.disabled = true;
+  setTimeout(() => {
+    alert('Pedido confirmado. Gracias por tu compra en ZETALCUBO.');
+    cart = [];
+    updateCart();
+    closeCheckoutFn();
+    btn.textContent = 'Confirmar Pedido';
+    btn.disabled = false;
+  }, 2000);
+});
+
+// ===== MOBILE MENU =====
+document.getElementById('mobileMenuBtn').addEventListener('click', () => {
+  const nav = document.querySelector('.nav-links');
+  nav.style.display = nav.style.display === 'flex' ? 'none' : 'flex';
+  nav.style.position = 'absolute';
+  nav.style.top = '60px';
+  nav.style.left = '0';
+  nav.style.right = '0';
+  nav.style.flexDirection = 'column';
+  nav.style.background = 'rgba(10,10,10,0.95)';
+  nav.style.padding = '20px';
+  nav.style.backdropFilter = 'blur(20px)';
+});
 </script>
 </body>
 </html>
